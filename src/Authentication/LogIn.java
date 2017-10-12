@@ -11,7 +11,7 @@ import Model.User;
 
 public class LogIn {
 	
-final private static File usersFile = new File("Users.txt");
+final private static File usersFile = new File("data/Users.txt");
 		private static Scanner in;
 		
 		public static User main(String usrName, String pasWord) throws IOException{
