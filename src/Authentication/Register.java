@@ -11,7 +11,7 @@ public class Register {
 private static String username;
 		private static String password;
 		private PrintWriter pw;
-		final private File usersFile = new File("Users.txt");
+		final private File usersFile = new File("data/Users.txt");
 		
 		public Register(String usrName, String pasWord){
 			
@@ -25,7 +25,7 @@ private static String username;
 			usersFile.createNewFile();
 			boolean found = false;
 			String[] info;
-			if(!username.matches("[^a-zA-Z0-9.-_]")){ // If usr matches any char not in the [] 
+			if(!username.matches("[^a-zA-Z0-9.-_]")){ // If user matches any char not in the [] 
 				
 				Scanner in = new Scanner(usersFile);
 
@@ -57,10 +57,10 @@ private static String username;
 			if(password.contains(" ")){ // Has a space
 				return false;
 			}
-			if(!password.matches(".*[a-z].*")) {// Missing an lowercase alphabetic char
+			if(!password.matches(".*[a-z].*")) {// Missing a lowercase alphabetic char
 				return false;
 			}
-			if(!password.matches(".*[A-Z].*")) {// Missing an uppercase alphabetic char
+			if(!password.matches(".*[A-Z].*")) {// Missing a uppercase alphabetic char
 				return false;
 			}
 			if(!password.matches(".*[0-9].*")) {// Missing numbers
