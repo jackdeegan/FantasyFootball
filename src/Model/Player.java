@@ -7,26 +7,47 @@ import java.util.List;
 public class Player {
 	
 	private int player_id;
+	private String player_position;
 	private String player_name;
 	private String player_availability;
 	private int player_points;
-	private List<Player> goalies;
-	private List<Player> defenders;
-	private List<Player> midfielders;
-	private List<Player> attackers;
+	private List<Player> team_members;
+	//private List<Player> goalies;
+	//private List<Player> defenders;
+	//private List<Player> midfielders;
+	//private List<Player> attackers;
 
-	public Player(int player_id, String player_name, String player_availability, int player_points){
+	public Player(int player_id, String player_position, String player_name, String player_availability, int player_points){
 		this.player_name = player_name;
+		this.player_position = player_position;
 	    this.player_id = player_id;
 	    this.player_availability = player_availability;
 	    this.player_points = player_points;
-	    goalies = new ArrayList<Player>();
-	    defenders = new ArrayList<Player>();
-	    midfielders = new ArrayList<Player>();
-	    attackers = new ArrayList<Player>();
+	    team_members = new ArrayList<Player>();
+	    //goalies = new ArrayList<Player>();
+	    //defenders = new ArrayList<Player>();
+	    //midfielders = new ArrayList<Player>();
+	    //attackers = new ArrayList<Player>();
 	}
 	
-	//goalies
+	//team
+	public void add(Player p) {
+		team_members.add(p);
+	   }
+
+	   public void remove(Player p) {
+		   team_members.remove(p);
+	   }
+
+	   public List<Player> getTeamMembers(){
+	     return team_members;
+	   }
+
+	public String toString(){
+	      return ("Name: " + player_name + "\tPosition: "+ player_position + "\tAvailability: " + player_availability + "\t\tPoints: " + player_points);
+	   }   
+	
+	/*//goalies
 	public void addGoalie(Player p) {
 	      goalies.add(p);
 	   }
@@ -92,7 +113,7 @@ public class Player {
 		   
 		public String AttToString(){
 		      return ("attackers :[ Name : " + player_name + ", Availability : " + player_availability + ", Points :" + player_points+" ]");
-		   }  
+		   } */ 
 	
 	
 	public int getPlayer_id() {
@@ -101,6 +122,14 @@ public class Player {
 
 	public void setPlayer_id(int player_id) {
 		this.player_id = player_id;
+	}
+	
+	public String getPlayer_position() {
+		return player_position;
+	}
+
+	public void setPlayer_position(String player_position) {
+		this.player_position = player_position;
 	}
 
 	public String getPlayer_name() {

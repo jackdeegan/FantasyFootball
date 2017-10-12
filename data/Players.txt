@@ -1,25 +1,25 @@
-G25,David De Gea,A,0
-G1,Peter Cech,A,0
-G2,Ben Foster,U,0
-D3,Chris Smalling,A,0
-D4,Phil Jones,A,0
-D5,Daley Blind,U,0
-D6,John Stones,A,0
-D7,Joel Matip,A,0
-D8,Vincent Kompany,A,0
-D9,Seamus Coleman,U,0
-M10,Ngolo Kante,A,0
-M11,Juan Mata,A,0
-M12,Paul Pogba,U,0
-M13,Aaron Ramsey,A,0
-M14,Granit Xhaka,A,0
-M15,Kevin De Bruyne,A,0
-M16,Jack Wilshere,U,0
-M17,Ander Herrera,A,0
-M18,Danny Drinkwater,A,0
-F19,Sergio Aguero,U,0
-F20,Romelu Lukaku,A,0
-F21,Marcus Rashford,A,0
-F22,Leroy Sane,A,0
-F23,Vincente Benteke,A,0
-F24,Sam Vokes,A,0
+25,G,David De Gea,A,0
+1,G,Peter Cech,A,0
+2,G,Ben Foster,U,0
+3,D,Chris Smalling,A,0
+4,D,Phil Jones,A,0
+5,D,Daley Blind,U,0
+6,D,John Stones,A,0
+7,D,Joel Matip,A,0
+8,D,Vincent Kompany,A,0
+9,D,Seamus Coleman,U,0
+10,M,Ngolo Kante,A,0
+11,M,Juan Mata,A,0
+12,M,Paul Pogba,U,0
+13,M,Aaron Ramsey,A,0
+14,M,Granit Xhaka,A,0
+15,M,Kevin De Bruyne,A,0
+16,M,Jack Wilshere,U,0
+17,M,Ander Herrera,A,0
+18,M,Danny Drinkwater,A,0
+19,F,Sergio Aguero,U,0
+20,F,Romelu Lukaku,A,0
+21,F,Marcus Rashford,A,0
+22,F,Leroy Sane,A,0F
+23,F,Vincente Benteke,A,0
+24,F,Sam Vokes,A,0
