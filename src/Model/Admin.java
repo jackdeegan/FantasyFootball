@@ -1,7 +1,6 @@
 package Model;
 
 import Authentication.Role;
-import Model.User;
 
 public class Admin extends User{
 	
