@@ -5,6 +5,8 @@ import Model.Player;
 public class CompositePattern {
 	public static void main (String [] args) {
 	
+	//at the moment i'm hard coding values in for players
+	//will use real values in future
 	Player goalie = new Player(55,"G", "Jack Deegan", "A", 7);
 	Player goalieSub = new Player (78,"G","Shane Kenny", "A", 2);
 
