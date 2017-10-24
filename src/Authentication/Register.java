@@ -25,7 +25,7 @@ private static String username;
 			usersFile.createNewFile();
 			boolean found = false;
 			String[] info;
-			if(!username.matches("[^a-zA-Z0-9.-_]")){ // If user matches any char not in the [] 
+			if(!username.matches("[^a-zA-Z0-9.-_]") || username == null){ // If user matches any char not in the [] 
 				
 				Scanner in = new Scanner(usersFile);
 
@@ -71,7 +71,7 @@ private static String username;
 		
 		public void storeUser() throws Exception{
 			
-			String Password = password;
+			String Password = Hashing.HashPassword(password);
 			
 			String details = username + "," + Password + ",1";
 			// The 1 is for the type of user. Normal members are 1, sales are 2 and managers as 3.

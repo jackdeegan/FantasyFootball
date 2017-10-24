@@ -24,7 +24,7 @@ final private static File usersFile = new File("data/Users.txt");
 			
 		    String[] info;
 			try {
-				password = pasWord;
+				password = Hashing.HashPassword(pasWord);
 			} catch (Exception e) { e.printStackTrace(); }
 
 		    while(in.hasNext()){

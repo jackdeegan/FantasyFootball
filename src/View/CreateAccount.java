@@ -75,38 +75,24 @@ public class CreateAccount extends MainGUI{
 		lblCreateNewAccount.setFont(new Font("Arial Black", Font.PLAIN, 12));
 		frmCreateAcc.getContentPane().add(lblCreateNewAccount);
 		
-		JLabel lblName = new JLabel("Name:");
-		lblName.setBounds(31, 107, 63, 20);
-		lblName.setFont(new Font("Arial Black", Font.PLAIN, 12));
-		frmCreateAcc.getContentPane().add(lblName);
+		
 		
 		JLabel lblUsername = new JLabel("Username:");
-		lblUsername.setBounds(31, 138, 86, 25);
+		lblUsername.setBounds(31, 107, 86, 25);
 		lblUsername.setFont(new Font("Arial Black", Font.PLAIN, 12));
 		frmCreateAcc.getContentPane().add(lblUsername);
 		
-		textField = new JTextField();
-		textField.setBounds(172, 108, 119, 20);
-		frmCreateAcc.getContentPane().add(textField);
-		textField.setColumns(10);
+	
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(172, 141, 119, 20);
+		textField_1.setBounds(172, 110, 119, 20);
 		frmCreateAcc.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
-		JLabel lblEmail = new JLabel("Email:");
-		lblEmail.setBounds(31, 168, 63, 25);
-		lblEmail.setFont(new Font("Arial Black", Font.PLAIN, 12));
-		frmCreateAcc.getContentPane().add(lblEmail);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(172, 171, 119, 20);
-		frmCreateAcc.getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+
 		
 		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.setBounds(172, 274, 89, 23);
+		btnSubmit.setBounds(172, 221, 89, 23);
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -155,22 +141,22 @@ public class CreateAccount extends MainGUI{
 		frmCreateAcc.getContentPane().add(btnSubmit);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(172, 202, 119, 20);
+		textField_3.setBounds(172, 143, 119, 20);
 		frmCreateAcc.getContentPane().add(textField_3);
 		textField_3.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setBounds(31, 205, 86, 17);
+		lblPassword.setBounds(31, 144, 86, 17);
 		lblPassword.setFont(new Font("Arial Black", Font.PLAIN, 12));
 		frmCreateAcc.getContentPane().add(lblPassword);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(172, 233, 119, 20);
+		textField_4.setBounds(172, 175, 119, 20);
 		frmCreateAcc.getContentPane().add(textField_4);
 		textField_4.setColumns(10);
 		
 		JLabel lblRetypePassword = new JLabel("Retype Password:");
-		lblRetypePassword.setBounds(31, 236, 131, 17);
+		lblRetypePassword.setBounds(31, 176, 131, 17);
 		lblRetypePassword.setFont(new Font("Arial Black", Font.PLAIN, 12));
 		frmCreateAcc.getContentPane().add(lblRetypePassword);
 		

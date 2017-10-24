@@ -20,6 +20,6 @@
 19,F,Sergio Aguero,U,0
 20,F,Romelu Lukaku,A,0
 21,F,Marcus Rashford,A,0
-22,F,Leroy Sane,A,0F
-23,F,Vincente Benteke,A,0
+22,F,Leroy Sane,A,0
+23,F,Christian Benteke,A,0
 24,F,Sam Vokes,A,0
