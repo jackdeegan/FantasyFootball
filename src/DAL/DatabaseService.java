@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class DatabaseService implements I_DatabaseService {
+public class DatabaseService {
 
     private List<String> data = new ArrayList<String>();
     private File aFile;
@@ -17,7 +17,7 @@ public class DatabaseService implements I_DatabaseService {
 
 	////////////////////Constructor\\\\\\\\\\\\\\\\\\\\
 	
-    DatabaseService(String filename) {
+    public DatabaseService(String filename) {
         this.filename =  filename;
         openFile(filename);       
         readFile();
@@ -103,11 +103,11 @@ public class DatabaseService implements I_DatabaseService {
 	
 	////////////////////Custom Methods\\\\\\\\\\\\\\\\\\\\
 	
-	private String[] readFileRow(int id) {
+	public String[] readFileRow(int id) {
 	
         String[] rowElements;
         boolean complete = false;
-        for(int i = 1; i < data.size() && complete == false; i++) {
+        for(int i = 0; i < data.size() && complete == false; i++) {
             rowElements = data.get(i).split(",");
             try {
                 if (Integer.parseInt(rowElements[0]) == id) {
