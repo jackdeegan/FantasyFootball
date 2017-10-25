@@ -17,7 +17,7 @@ public class DatabaseService {
 
 	////////////////////Constructor\\\\\\\\\\\\\\\\\\\\
 	
-    public DatabaseService(String filename) {
+    DatabaseService(String filename) {
         this.filename =  filename;
         openFile(filename);       
         readFile();
@@ -75,7 +75,6 @@ public class DatabaseService {
 		return fetchedRow;
 	}
 	
-<<<<<<< HEAD
 /*	public boolean checkData(String UserID){		//This method may/may-not be used
 													//Check for injuries (STATE)???
 	List<String> cus = getData();
@@ -92,12 +91,6 @@ public class DatabaseService {
 
 /*	public String[] readFileRow(int id) {
 		
-=======
-	////////////////////Custom Methods\\\\\\\\\\\\\\\\\\\\
-	
-	public String[] readFileRow(int id) {
-	
->>>>>>> branch 'master' of https://github.com/jackdeegan/FantasyFootball.git
         String[] rowElements;
         boolean complete = false;
         for(int i = 0; i < data.size() && complete == false; i++) {
