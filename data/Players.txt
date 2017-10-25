@@ -1,25 +1,65 @@
-25,G,David De Gea,A,0
-1,G,Peter Cech,A,0
-2,G,Ben Foster,U,0
-3,D,Chris Smalling,A,0
-4,D,Phil Jones,A,0
-5,D,Daley Blind,U,0
-6,D,John Stones,A,0
-7,D,Joel Matip,A,0
-8,D,Vincent Kompany,A,0
-9,D,Seamus Coleman,U,0
-10,M,Ngolo Kante,A,0
-11,M,Juan Mata,A,0
-12,M,Paul Pogba,U,0
-13,M,Aaron Ramsey,A,0
-14,M,Granit Xhaka,A,0
-15,M,Kevin De Bruyne,A,0
-16,M,Jack Wilshere,U,0
-17,M,Ander Herrera,A,0
-18,M,Danny Drinkwater,A,0
-19,F,Sergio Aguero,U,0
-20,F,Romelu Lukaku,A,0
-21,F,Marcus Rashford,A,0
-22,F,Leroy Sane,A,0
-23,F,Christian Benteke,A,0
-24,F,Sam Vokes,A,0
+1,Sergio,Romero,G,0,MNU,0
+12,Willy,Caballero,G,0,CHE,0
+23,Loris,Karius,G,0,LIV,0
+34,Claudio,Bravo,G,0,MCI,0
+45,Hugo,Lloris,G,0,TOT,0
+56,David,Ospina,G,0,ARS,0
+2,Eric,Bailly,D,0,MNU,0
+3,Phil,Jones,D,0,MNU,0
+4,Marcos,Rojo,D,0,MNU,0
+13,Marcos,Alonso,D,0,CHE,0
+14,Gary,Cahill,D,0,CHE,0
+15,David,Luiz,D,0,CHE,0
+24,Nathaniel,Clyne,D,0,LIV,0
+25,Dejan,Lovren,D,0,LIV,0
+26,Joe,Gomez,D,0,LIV,0
+35,Kyle,Walker,D,0,MCI,0
+36,Vincent,Kompany,D,0,MCI,0
+37,John,Stones,D,0,MCI,0
+38,Eliaquim,Mangala,D,0,MCI,0
+46,Danny,Rose,D,0,TOT,0
+47,Kieran,Trippier,D,0,TOT,0
+48,Jan,Vertonghen,D,0,TOT,0
+49,Toby,Alderweireld,D,0,TOT,0
+57,Mathieu,Debuchy,D,0,ARS,0
+58,Per,Mertesacker,D,0,ARS,0
+59,Laurent,Koscielny,D,0,ARS,0
+60,Rob,Holding,D,0,ARS,0
+5,Paul,Pogba,M,0,MNU,0
+6,Nemanje,Matic,M,0,MNU,0
+7,Jesse,Lingard,M,0,MNU,0
+8,Michael,Carrick,M,0,MNU,0
+16,Danny,Drinkwater,M,0,CHE,0
+17,Eden,Hazard,M,0,CHE,0
+18,Victor,Moses,M,0,CHE,0
+19,Charly,Musonda,M,0,CHE,0
+27,Adam,Lallana,M,0,LIV,0
+28,Emre,Can,M,0,LIV,0
+29,Jordan,Henderson,M,0,LIV,0
+30,Philippe,Coutinho,M,0,LIV,0
+39,Fabian,Delph,M,0,MCI,0
+40,Bernardo,Silva,M,0,MCI,0
+41,David,Silva,M,0,MCI,0
+42,Raheem,Sterling,M,0,MCI,0
+50,Dele,Alli,M,0,TOT,0
+51,Harry,Winks,M,0,TOT,0
+52,Eric,Dier,M,0,TOT,0
+53,Moussa,Sissoko,M,0,TOT,0
+61,Santi,Cazorla,M,0,ARS,0
+62,Aaron,Ramsey,M,0,ARS,0
+63,Jack,Wilshere,M,0,ARS,0
+64,Francis,Coquelin,M,0,ARS,0
+9,Romelu,Lukaku,F,0,MNU,0
+10,Anthony,Martial,F,0,MNU,0
+11,Marcus,Rashford,F,0,MNU,0
+20,Diego,Costa,F,0,CHE,0
+21,Alvaro,Morata,F,0,CHE,0
+22,Michy,Batshuayi,F,0,CHE,0
+31,Roberto,Firmino,F,0,LIV,0
+32,Daniel,Sturridge,F,0,LIV,0
+33,Danny,Ings,F,0,LIV,0
+43,Sergio,Aguero,F,0,MCI,0
+44,Gabriel,Jesus,F,0,MCI,0
+55,Fernando,Llorente,F,0,TOT,0
+65,Alexandre,Lacazette,F,0,ARS,0
+66,Theo,Walcott,F,0,ARS,0
