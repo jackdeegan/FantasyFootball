@@ -1,0 +1,417 @@
+1,Bournemouth,Manchester United
+2,Arsenal,Liverpool
+3,Burnley,Swansea City
+4,Chelsea,West Ham United
+5,Crystal Palace,West Bromwich Albion
+6,Everton,Tottenham Hotspur
+7,Hull City,Leicester City
+8,Manchester City,Sunderland
+9,Middlesbrough,Stoke City
+10,Southampton,Watford
+-----------------------------------------
+11,Leicester City,Arsenal
+12,Liverpool,Burnley
+13,Manchester United,Southampton
+14,Stoke City,Manchester City
+15,Sunderland,Middlesbrough
+16,Swansea City,Hull City
+17,Tottenham Hotspur,Crystal Palace
+18,Watford,Chelsea
+19,West Bromwich Albion,Everton
+20,West Ham United,Bournemouth
+-----------------------------------------
+21,Chelsea,Burnley
+22,Crystal Palace,Bournemouth
+23,Everton,Stoke City
+24,Hull City,Manchester United
+25,Leicester City,Swansea City
+26,Manchester City,West Ham United
+27,Southampton,Sunderland
+28,Tottenham Hotspur,Liverpool
+29,Watford,Arsenal
+30,West Bromwich Albion,Middlesbrough
+-----------------------------------------
+31,Bournemouth,West Bromwich Albion
+32,Arsenal,Southampton
+33,Burnley,Hull City
+34,Liverpool,Leicester City
+35,Manchester United,Manchester City
+36,Middlesbrough,Crystal Palace
+37,Stoke City,Tottenham Hotspur
+38,Sunderland,Everton
+39,Swansea City,Chelsea
+40,West Ham United,Watford
+-----------------------------------------
+41,Chelsea,Liverpool
+42,Crystal Palace,Stoke City
+43,Everton,Middlesbrough
+44,Hull City,Arsenal
+45,Leicester City,Burnley
+46,Manchester City,Bournemouth
+47,Southampton,Swansea City
+48,Tottenham Hotspur,Sunderland
+49,Watford,Manchester United
+50,West Bromwich Albion,West Ham United
+-----------------------------------------
+51,Bournemouth,Everton
+52,Arsenal,Chelsea
+53,Burnley,Watford
+54,Liverpool,Hull City
+55,Manchester United,Leicester City
+56,Middlesbrough,Tottenham Hotspur
+57,Stoke City,West Bromwich Albion
+58,Sunderland,Crystal Palace
+59,Swansea City,Manchester City
+60,West Ham United,Southampton
+-----------------------------------------
+61,Burnley,Arsenal
+62,Everton,Crystal Palace
+63,Hull City,Chelsea
+64,Leicester City,Southampton
+65,Manchester United,Stoke City
+66,Sunderland,West Bromwich Albion
+67,Swansea City,Liverpool
+68,Tottenham Hotspur,Manchester City
+69,Watford,Bournemouth
+70,West Ham United,Middlesbrough
+-----------------------------------------
+71,Bournemouth,Hull City
+72,Arsenal,Swansea City
+73,Chelsea,Leicester City
+74,Crystal Palace,West Ham United
+75,Liverpool,Manchester United
+76,Manchester City,Everton
+77,Middlesbrough,Watford
+78,Southampton,Burnley
+79,Stoke City,Sunderland
+80,West Bromwich Albion,Tottenham Hotspur
+-----------------------------------------
+81,Bournemouth,Tottenham Hotspur
+82,Arsenal,Middlesbrough
+83,Burnley,Everton
+84,Chelsea,Manchester United
+85,Hull City,Stoke City
+86,Leicester City,Crystal Palace
+87,Liverpool,West Bromwich Albion
+88,Manchester City,Southampton
+89,Swansea City,Watford
+90,West Ham United,Sunderland
+-----------------------------------------
+91,Crystal Palace,Liverpool
+92,Everton,West Ham United
+93,Manchester United,Burnley
+94,Middlesbrough,Bournemouth
+95,Southampton,Chelsea
+96,Stoke City,Swansea City
+97,Sunderland,Arsenal
+98,Tottenham Hotspur,Leicester City
+99,Watford,Hull City
+100,West Bromwich Albion,Manchester City
+-----------------------------------------
+101,Bournemouth,Sunderland
+102,Arsenal,Tottenham Hotspur
+103,Burnley,Crystal Palace
+104,Chelsea,Everton
+105,Hull City,Southampton
+106,Leicester City,West Bromwich Albion
+107,Liverpool,Watford
+108,Manchester City,Middlesbrough
+109,Swansea City,Manchester United
+110,West Ham United,Stoke City
+-----------------------------------------
+111,Crystal Palace,Manchester City
+112,Everton,Swansea City
+113,Manchester United,Arsenal
+114,Middlesbrough,Chelsea
+115,Southampton,Liverpool
+116,Stoke City,Bournemouth
+117,Sunderland,Hull City
+118,Tottenham Hotspur,West Ham United
+119,Watford,Leicester City
+120,West Bromwich Albion,Burnley
+-----------------------------------------
+121,Arsenal,Bournemouth
+122,Burnley,Manchester City
+123,Chelsea,Tottenham Hotspur
+124,Hull City,West Bromwich Albion
+125,Leicester City,Middlesbrough
+126,Liverpool,Sunderland
+127,Manchester United,West Ham United
+128,Southampton,Everton
+129,Swansea City,Crystal Palace
+130,Watford,Stoke City
+-----------------------------------------
+131,Bournemouth,Liverpool
+132,Crystal Palace,Southampton
+133,Everton,Manchester United
+134,Manchester City,Chelsea
+135,Middlesbrough,Hull City
+136,Stoke City,Burnley
+137,Sunderland,Leicester City
+138,Tottenham Hotspur,Swansea City
+139,West Bromwich Albion,Watford
+140,West Ham United,Arsenal
+-----------------------------------------
+141,Arsenal,Stoke City
+142,Burnley,Bournemouth
+143,Chelsea,West Bromwich Albion
+144,Hull City,Crystal Palace
+145,Leicester City,Manchester City
+146,Liverpool,West Ham United
+147,Manchester United,Tottenham Hotspur
+148,Southampton,Middlesbrough
+149,Swansea City,Sunderland
+150,Watford,Everton
+-----------------------------------------
+151,Bournemouth,Leicester City
+152,Crystal Palace,Manchester United
+153,Middlesbrough,Liverpool
+154,Sunderland,Chelsea
+155,West Bromwich Albion,Swansea City
+156,West Ham United,Burnley
+157,Everton,Arsenal
+158,Manchester City,Watford
+159,Stoke City,Southampton
+160,Tottenham Hotspur,Hull City
+-----------------------------------------
+161,Bournemouth,Southampton
+162,Crystal Palace,Chelsea
+163,Everton,Liverpool
+164,Manchester City,Arsenal
+165,Middlesbrough,Swansea City
+166,Stoke City,Leicester City
+167,Sunderland,Watford
+168,Tottenham Hotspur,Burnley
+169,West Bromwich Albion,Manchester United
+170,West Ham United,Hull City
+-----------------------------------------
+171,Arsenal,West Bromwich Albion
+172,Burnley,Middlesbrough
+173,Chelsea,Bournemouth
+174,Hull City,Manchester City
+175,Leicester City,Everton
+176,Liverpool,Stoke City
+177,Manchester United,Sunderland
+178,Southampton,Tottenham Hotspur
+179,Swansea City,West Ham United
+180,Watford,Crystal Palace
+-----------------------------------------
+181,Arsenal,Crystal Palace
+182,Burnley,Sunderland
+183,Chelsea,Stoke City
+184,Hull City,Everton
+185,Leicester City,West Ham United
+186,Liverpool,Manchester City
+187,Manchester United,Middlesbrough
+188,Southampton,West Bromwich Albion
+189,Swansea City,Bournemouth
+190,Watford,Tottenham Hotspur
+-----------------------------------------
+191,Bournemouth,Arsenal
+192,Crystal Palace,Swansea City
+193,Everton,Southampton
+194,Manchester City,Burnley
+195,Middlesbrough,Leicester City
+196,Stoke City,Watford
+197,Sunderland,Liverpool
+198,Tottenham Hotspur,Chelsea
+199,West Bromwich Albion,Hull City
+200,West Ham United,Manchester United
+-----------------------------------------
+201,Burnley,Southampton
+202,Everton,Manchester City
+203,Hull City,Bournemouth
+204,Leicester City,Chelsea
+205,Manchester United,Liverpool
+206,Sunderland,Stoke City
+207,Swansea City,Arsenal
+208,Tottenham Hotspur,West Bromwich Albion
+209,Watford,Middlesbrough
+210,West Ham United,Crystal Palace
+-----------------------------------------
+211,Bournemouth,Watford
+212,Arsenal,Burnley
+213,Chelsea,Hull City
+214,Crystal Palace,Everton
+215,Liverpool,Swansea City
+216,Manchester City,Tottenham Hotspur
+217,Middlesbrough,West Ham United
+218,Southampton,Leicester City
+219,Stoke City,Manchester United
+220,West Bromwich Albion,Sunderland
+-----------------------------------------
+221,Bournemouth,Crystal Palace
+222,Arsenal,Watford
+223,Burnley,Leicester City
+224,Middlesbrough,West Bromwich Albion
+225,Sunderland,Tottenham Hotspur
+226,Swansea City,Southampton
+227,West Ham United,Manchester City
+228,Liverpool,Chelsea
+229,Stoke City,Everton
+230,Manchester United,Hull City
+-----------------------------------------
+231,Chelsea,Arsenal
+232,Crystal Palace,Sunderland
+233,Everton,Bournemouth
+234,Hull City,Liverpool
+235,Leicester City,Manchester United
+236,Manchester City,Swansea City
+237,Southampton,West Ham United
+238,Tottenham Hotspur,Middlesbrough
+239,Watford,Burnley
+240,West Bromwich Albion,Stoke City
+-----------------------------------------
+241,Bournemouth,Manchester City
+242,Arsenal,Hull City
+243,Burnley,Chelsea
+244,Liverpool,Tottenham Hotspur
+245,Manchester United,Watford
+246,Middlesbrough,Everton
+247,Stoke City,Crystal Palace
+248,Sunderland,Southampton
+249,Swansea City,Leicester City
+250,West Ham United,West Bromwich Albion
+-----------------------------------------
+251,Chelsea,Swansea City
+252,Crystal Palace,Middlesbrough
+253,Everton,Sunderland
+254,Hull City,Burnley
+255,Leicester City,Liverpool
+256,Manchester City,Manchester United
+257,Southampton,Arsenal
+258,Tottenham Hotspur,Stoke City
+259,Watford,West Ham United
+260,West Bromwich Albion,Bournemouth
+-----------------------------------------
+261,Leicester City,Hull City
+262,Liverpool,Arsenal
+263,Manchester United,Bournemouth
+264,Stoke City,Middlesbrough
+265,Sunderland,Manchester City
+266,Swansea City,Burnley
+267,Tottenham Hotspur,Everton
+268,Watford,Southampton
+269,West Bromwich Albion,Crystal Palace
+270,West Ham United,Chelsea
+-----------------------------------------
+271,Bournemouth,West Ham United
+272,Arsenal,Leicester City
+273,Burnley,Liverpool
+274,Chelsea,Watford
+275,Crystal Palace,Tottenham Hotspur
+276,Everton,West Bromwich Albion
+277,Hull City,Swansea City
+278,Manchester City,Stoke City
+279,Middlesbrough,Sunderland
+280,Southampton,Manchester United
+-----------------------------------------
+281,Bournemouth,Swansea City
+282,Crystal Palace,Watford
+283,Everton,Hull City
+284,Manchester City,Liverpool
+285,Middlesbrough,Manchester United
+286,Stoke City,Chelsea
+287,Sunderland,Burnley
+288,Tottenham Hotspur,Southampton
+289,West Bromwich Albion,Arsenal
+290,West Ham United,Leicester City
+-----------------------------------------
+291,Arsenal,Manchester City
+292,Burnley,Tottenham Hotspur
+293,Chelsea,Crystal Palace
+294,Hull City,West Ham United
+295,Leicester City,Stoke City
+296,Liverpool,Everton
+297,Manchester United,West Bromwich Albion
+298,Southampton,Bournemouth
+299,Swansea City,Middlesbrough
+300,Watford,Sunderland
+-----------------------------------------
+301,Arsenal,West Ham United
+302,Burnley,Stoke City
+303,Hull City,Middlesbrough
+304,Leicester City,Sunderland
+305,Manchester United,Everton
+306,Swansea City,Tottenham Hotspur
+307,Watford,West Bromwich Albion
+308,Chelsea,Manchester City
+309,Liverpool,Bournemouth
+310,Southampton,Crystal Palace
+-----------------------------------------
+311,Bournemouth,Chelsea
+312,Crystal Palace,Arsenal
+313,Everton,Leicester City
+314,Manchester City,Hull City
+315,Middlesbrough,Burnley
+316,Stoke City,Liverpool
+317,Sunderland,Manchester United
+318,Tottenham Hotspur,Watford
+319,West Bromwich Albion,Southampton
+320,West Ham United,Swansea City
+-----------------------------------------
+321,Crystal Palace,Leicester City
+322,Everton,Burnley
+323,Manchester United,Chelsea
+324,Middlesbrough,Arsenal
+325,Southampton,Manchester City
+326,Stoke City,Hull City
+327,Sunderland,West Ham United
+328,Tottenham Hotspur,Bournemouth
+329,Watford,Swansea City
+330,West Bromwich Albion,Liverpool
+-----------------------------------------
+331,Bournemouth,Middlesbrough
+332,Arsenal,Sunderland
+333,Burnley,Manchester United
+334,Chelsea,Southampton
+335,Hull City,Watford
+336,Leicester City,Tottenham Hotspur
+337,Liverpool,Crystal Palace
+338,Manchester City,West Bromwich Albion
+339,Swansea City,Stoke City
+340,West Ham United,Everton
+-----------------------------------------
+341,Crystal Palace,Burnley
+342,Everton,Chelsea
+343,Manchester United,Swansea City
+344,Middlesbrough,Manchester City
+345,Southampton,Hull City
+346,Stoke City,West Ham United
+347,Sunderland,Bournemouth
+348,Tottenham Hotspur,Arsenal
+349,Watford,Liverpool
+350,West Bromwich Albion,Leicester City
+-----------------------------------------
+351,Bournemouth,Stoke City
+352,Arsenal,Manchester United
+353,Burnley,West Bromwich Albion
+354,Chelsea,Middlesbrough
+355,Hull City,Sunderland
+356,Leicester City,Watford
+357,Liverpool,Southampton
+358,Manchester City,Crystal Palace
+359,Swansea City,Everton
+360,West Ham United,Tottenham Hotspur
+-----------------------------------------
+361,Bournemouth,Burnley
+362,Crystal Palace,Hull City
+363,Everton,Watford
+364,Manchester City,Leicester City
+365,Middlesbrough,Southampton
+366,Stoke City,Arsenal
+367,Sunderland,Swansea City
+368,Tottenham Hotspur,Manchester United
+369,West Bromwich Albion,Chelsea
+370,West Ham United,Liverpool
+-----------------------------------------
+371,Arsenal,Everton
+372,Burnley,West Ham United
+373,Chelsea,Sunderland
+374,Hull City,Tottenham Hotspur
+375,Leicester City,Bournemouth
+376,Liverpool,Middlesbrough
+377,Manchester United,Crystal Palace
+378,Southampton,Stoke City
+379,Swansea City,West Bromwich Albion
+380,Watford,Manchester City
