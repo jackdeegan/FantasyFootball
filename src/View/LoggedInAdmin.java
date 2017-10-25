@@ -133,7 +133,23 @@ public class LoggedInAdmin extends LogInWindow{
 		btnViewFixtures.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnViewFixtures.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			}
+				try {
+					aFile = new FileReader("data/Fixtures.txt");
+					String[] fixtures;
+					in = new Scanner(aFile);
+					userList.setText("Week 1 Fixtures:\n");
+					while (in.hasNext()) {
+						fixtures = in.nextLine().split(",");
+						userList.append("Game " + fixtures[0] + ": " + fixtures[1] + " vs " + fixtures[2] + "\n");
+					}
+					
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+					}
+			
 		});
 		btnViewFixtures.setBounds(259, 91, 115, 23);
 		frmLoggedAdmin.getContentPane().add(btnViewFixtures);
