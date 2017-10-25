@@ -1,8 +1,12 @@
 /View/
 /Authentication/
+<<<<<<< HEAD
+=======
 /META-INF/
 /Model/
 <<<<<<< HEAD
 =======
 /DAL/
 >>>>>>> branch 'master' of https://github.com/jackdeegan/FantasyFootball.git
+>>>>>>> branch 'master' of https://github.com/jackdeegan/FantasyFootball.git
+/Points/

@@ -3,7 +3,7 @@ package Authentication;
 public class Role {
 	
 		private boolean isAdmin = false;
-		private boolean isPlayer = false;
+		private boolean isUser = false;
 		
 		// The token can hold the state and the perms of a user. We can check the UI against the perms
 		// If the Token has manager as false, then that use cannot purchase more stock for the books.
@@ -14,13 +14,13 @@ public class Role {
 			if(rankNumber.equals("1")) {
 				
 				this.isAdmin = false;
-				this.isPlayer = true;
+				this.isUser = true;
 				
 			}
 			else if(rankNumber.equals("2")) {
 				
 				this.isAdmin = true;
-				this.isPlayer = false;
+				this.isUser = false;
 			}
 			
 		}
@@ -30,7 +30,7 @@ public class Role {
 		}
 
 		public boolean getPlayer(){
-			return this.isPlayer;
+			return this.isUser;
 		}
 
 		

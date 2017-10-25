@@ -4,7 +4,6 @@
 34,Claudio,Bravo,G,0,MCI,0
 45,Hugo,Lloris,G,0,TOT,0
 56,David,Ospina,G,0,ARS,0
----------------------------------------------------
 2,Eric,Bailly,D,0,MNU,0
 3,Phil,Jones,D,0,MNU,0
 4,Marcos,Rojo,D,0,MNU,0
@@ -26,9 +25,8 @@
 58,Per,Mertesacker,D,0,ARS,0
 59,Laurent,Koscielny,D,0,ARS,0
 60,Rob,Holding,D,0,ARS,0
----------------------------------------------------
 5,Paul,Pogba,M,0,MNU,0
-6,Juan,Mata,M,0,MNU,0
+6,Nemanje,Matic,M,0,MNU,0
 7,Jesse,Lingard,M,0,MNU,0
 8,Michael,Carrick,M,0,MNU,0
 16,Danny,Drinkwater,M,0,CHE,0
@@ -51,7 +49,6 @@
 62,Aaron,Ramsey,M,0,ARS,0
 63,Jack,Wilshere,M,0,ARS,0
 64,Francis,Coquelin,M,0,ARS,0
----------------------------------------------------
 9,Romelu,Lukaku,F,0,MNU,0
 10,Anthony,Martial,F,0,MNU,0
 11,Marcus,Rashford,F,0,MNU,0
