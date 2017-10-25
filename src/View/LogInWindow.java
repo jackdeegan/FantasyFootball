@@ -98,7 +98,7 @@ public class LogInWindow extends MainGUI{
 				} catch (IOException e1) { e1.printStackTrace(); }
 
 				role = (member != null) ? member.getRole() : null;
-				if (role == null || role.getAdmin()) {
+				if (role == null) {
                 	// True if failed, no match.
 					JLabel errorLabel = new JLabel();
 					errorLabel.setFont(new Font("Arial Black", Font.PLAIN, 12));
@@ -107,13 +107,18 @@ public class LogInWindow extends MainGUI{
 					frmLogIn.getContentPane().add(errorLabel);
 					errorLabel.setText("* Log in failed");
 				
-				} else {
+				} else if(role.getPlayer()){
 					// Success
 					LoggedInAsUser window = new LoggedInAsUser();
 					frmLogIn.hide();
 					window.startLoggedUser();
 
                 }
+				else if (role.getAdmin()){
+					LoggedInAdmin window = new LoggedInAdmin();
+					frmLogIn.hide();
+					window.startLoggedAdmin();
+				}
 				
 			}
 				

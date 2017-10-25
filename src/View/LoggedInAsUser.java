@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 
 import Model.Admin;
@@ -14,15 +15,22 @@ import View.LogInWindow;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.JTextArea;
 
 public class LoggedInAsUser extends LogInWindow{
 
 	private JFrame frmLoggedUser;
 	protected static User currentUser = LogInWindow.member;
 	public static String username = currentUser.getUsername();
+	public JTextArea userlist = new JTextArea();
+	private FileReader aFile;
+	private Scanner in;
 
 	/**
 	 * Launch the application.
@@ -78,52 +86,91 @@ public class LoggedInAsUser extends LogInWindow{
 		userLabel.setBounds(10, 55, 267, 24);
 		frmLoggedUser.getContentPane().add(userLabel);
 		
+		JTextArea userList = new JTextArea();
+		userList.setBounds(10, 135, 364, 229);
+		frmLoggedUser.getContentPane().add(userList);
+		JScrollPane scroll = new JScrollPane(userList);
+		scroll.setBounds(10, 156, 353, 233);
+		scroll.setViewportView(userList);
+		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		frmLoggedUser.getContentPane().add(scroll);
+		
+		
+		
+		
 		JButton btnViewStandings = new JButton("View Standings");
+		btnViewStandings.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnViewStandings.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnViewStandings.setBounds(355, 178, 117, 33);
+		btnViewStandings.setBounds(10, 90, 112, 24);
 		frmLoggedUser.getContentPane().add(btnViewStandings);
 		
 		JButton btnEditTeam = new JButton("Edit Team");
+		btnEditTeam.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnEditTeam.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnEditTeam.setBounds(355, 222, 117, 33);
+		btnEditTeam.setBounds(132, 90, 101, 24);
 		frmLoggedUser.getContentPane().add(btnEditTeam);
 		
 		JButton btnEditTeamName = new JButton("Edit Team Name");
+		btnEditTeamName.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnEditTeamName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnEditTeamName.setBounds(355, 266, 117, 33);
+		btnEditTeamName.setBounds(245, 90, 118, 24);
 		frmLoggedUser.getContentPane().add(btnEditTeamName);
 		
 		JButton btnPoints = new JButton("View All Points");
+		btnPoints.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnPoints.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					aFile = new FileReader("data/Players.txt");
+					String[] users;
+					in = new Scanner(aFile);
+					userList.setText("Players/Points:\n");
+					while (in.hasNext()) {
+						users = in.nextLine().split(",");
+						userList.append(users[0] + ", " + users[1] + ", " + users[2] + ", "+ users[3] + ", " + users[4] + "\n");
+
+					}
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 			}
 		});
-		btnPoints.setBounds(355, 310, 117, 33);
+		btnPoints.setBounds(373, 90, 110, 24);
 		frmLoggedUser.getContentPane().add(btnPoints);
-		
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(20, 115, 257, 228);
-		frmLoggedUser.getContentPane().add(textPane);
 		
 		JLabel lblYourSquadpoints = new JLabel("Your Squad/Points");
 		lblYourSquadpoints.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblYourSquadpoints.setBounds(20, 90, 117, 24);
+		lblYourSquadpoints.setBounds(10, 121, 117, 24);
 		frmLoggedUser.getContentPane().add(lblYourSquadpoints);
 		
 		JLabel lblWeekNo = new JLabel("Week No: ");
-		lblWeekNo.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblWeekNo.setBounds(355, 115, 117, 33);
+		lblWeekNo.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblWeekNo.setBounds(366, 55, 117, 24);
 		frmLoggedUser.getContentPane().add(lblWeekNo);
-		frmLoggedUser.setBounds(100, 100, 509, 412);
+		
+		JButton btnClear = new JButton("Clear");
+		btnClear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmLoggedUser.hide();
+				LoggedInAsUser window1 = new LoggedInAsUser();
+				window1.frmLoggedUser.setVisible(true);
+				
+			}
+		});
+		btnClear.setBounds(10, 400, 89, 23);
+		frmLoggedUser.getContentPane().add(btnClear);
+		frmLoggedUser.setBounds(100, 100, 523, 470);
 		frmLoggedUser.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
