@@ -17,7 +17,7 @@ public class DatabaseService {
 
 	////////////////////Constructor\\\\\\\\\\\\\\\\\\\\
 	
-    DatabaseService(String filename) {
+    public DatabaseService(String filename) {
         this.filename =  filename;
         openFile(filename);       
         readFile();
