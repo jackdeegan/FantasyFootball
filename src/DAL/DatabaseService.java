@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class DatabaseService implements I_DatabaseService {
+public class DatabaseService {
 
     private List<String> data = new ArrayList<String>();
     private File aFile;
@@ -50,98 +50,69 @@ public class DatabaseService implements I_DatabaseService {
         }
     }
 	
-	////////////////////Interface Methods\\\\\\\\\\\\\\\\\\\\
+	////////////////////Public Methods\\\\\\\\\\\\\\\\\\\\
 	
-	public List<String> getData() {
+	public List<String> getData() {					//Returns data in file in a String List
         return data;      
     }
 	
-	public void changeData(int info) {
-        writeData(data);     
-    }                 
-
-	public void deleteData(String[] info) {
-        deleteFileRow(info);
+	public void deleteData(int id) {				//Deletes row beginning with ID passed
+        deleteFileRow(id);
     }		
 	
-	public void addData(String info) {
+	public void changeData(String changedRow) { 	//Changes row with corresponding ID
+		changeFileRow(changedRow);    
+    }                 
+	
+	public void addData(String info) {				//Adds a new row to the text file
         data.add(info);
         writeData(data);
     }
 	
-	////////////////////Interface Sub Methods\\\\\\\\\\\\\\\\\\\\
-	
-	private void writeData(List<String> newData) {
-        
-		try {
-            FileWriter aFileWriter = new FileWriter(filename);
-            for (int i = 0; i < newData.size(); i++) {
-                aFileWriter.write(newData.get(i) + "\n");
-            }
-            aFileWriter.close();
-        } 
-		catch (IOException e) {
-			System.out.println("Exception: " + e + "\n Exiting program.");
-            System.exit(0);
-		}
-    }
-	
-	private void deleteFileRow(String[] newRow) {
-		
-		String[] rowElements;
-		boolean complete = false;
-		for(int i = 1; i < data.size() && complete == false; i++) {
-			rowElements = data.get(i).split(",");
-			if(Integer.parseInt(rowElements[0]) == Integer.parseInt(newRow[0])) 
-			{
-				data.remove(i);
-				writeData(data);
-				complete = true;
-			}
-		}
+	public String[] getRowData(int id) {			//Returns row beginning with ID passed
+		String[] fetchedRow;
+		fetchedRow = fetchFileRow(id);
+		return fetchedRow;
 	}
 	
-	////////////////////Custom Methods\\\\\\\\\\\\\\\\\\\\
-	
-	private String[] readFileRow(int id) {
-	
+/*	public boolean checkData(String UserID){		//This method may/may-not be used
+													//Check for injuries (STATE)???
+	List<String> cus = getData();
+    for (int i = 0; i < cus.size(); i++) {
+        String[] detail = cus.get(i).split(",");
+        if (Integer.parseInt(detail[0]) == Integer.parseInt(UserID)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+	////////////////////METHODS TO BE DELETED BUT CURRENTLY IN USE BY OTHERS\\\\\\\\\\\\\\\\\\\\
+
+/*	public String[] readFileRow(int id) {
+		
         String[] rowElements;
         boolean complete = false;
-        for(int i = 1; i < data.size() && complete == false; i++) {
+        for(int i = 0; i < data.size() && complete == false; i++) {
             rowElements = data.get(i).split(",");
             try {
                 if (Integer.parseInt(rowElements[0]) == id) {
                     return rowElements;
                 }
             } catch (NumberFormatException e) {
-				//System.out.println("Exception: " + e + "\n Exiting program.");
-				//System.exit(0);
+            	System.out.println("Exception: " + e + "\n Exiting program.");
+				System.exit(0);
 			}
         }
 
         return null;
     }
-	
-	public String showData(int chosenItemID) {
-		
-        List<String> fileData = getData();
-        for (int i = 1; i < fileData.size(); i++) {
-            String itemInfo;
-            String[] detail = fileData.get(i).split(",");
-            if (Integer.parseInt(detail[0]) == chosenItemID) 
-			{
-                itemInfo = fileData.get(i);
-                return itemInfo;
-            }
-        }
-        return null;
-    }
-	
-    private void updateFileRow(String[] newRow) {
+*/	
+/*	private void updateFileRow(String[] newRow) {
         
 		String newLine = "";
         String[] rowElements;
-        for(int i = 1; i < data.size(); i++) {
+        for(int i = 0; i < data.size(); i++) {
             rowElements = data.get(i).split(",");
             if(Integer.parseInt(rowElements[0]) == Integer.parseInt(newRow[0])) {
                 for (int j = 0; j < newRow.length; j++) 
@@ -157,12 +128,44 @@ public class DatabaseService implements I_DatabaseService {
             }
         }
     }
-    
-	public void changeItemData(String changedRow) {
+*/		
+	////////////////////Private Methods\\\\\\\\\\\\\\\\\\\\
+	
+	private void writeData(List<String> newData) {
+
+		try {
+				FileWriter aFileWriter = new FileWriter(filename);
+				for (int i = 0; i < newData.size(); i++) {
+					aFileWriter.write(newData.get(i) + "\n");
+				}
+				aFileWriter.close();
+		} 
+		catch (IOException e) {
+			System.out.println("Exception: " + e + "\n Exiting program.");
+			System.exit(0);
+		}
+	}
+
+	private void deleteFileRow(int id) {
+
+		String[] rowElements;
+		boolean complete = false;
+		for(int i = 0; i < data.size() && complete == false; i++) {
+			rowElements = data.get(i).split(",");
+			if(Integer.parseInt(rowElements[0]) == id) 
+			{
+				data.remove(i);
+				writeData(data);
+				complete = true;
+			}
+		}
+	}
+	
+	private void changeFileRow(String changedRow) {
         
 		List<String> fileData = getData();
 
-        for (int i = 1; i < fileData.size(); i++) 
+        for (int i = 0; i < fileData.size(); i++) 
 		{
             String[] detail = fileData.get(i).split(",");
             if (Integer.parseInt(detail[0]) == Integer.parseInt(changedRow.substring(0, changedRow.indexOf(",")))) {
@@ -173,15 +176,17 @@ public class DatabaseService implements I_DatabaseService {
         writeData(fileData);
     }
 	
-	public boolean checkData(String UserID){
-	
-		List<String> cus = getData();
-        for (int i = 1; i < cus.size(); i++) {
-            String[] detail = cus.get(i).split(",");
-            if (Integer.parseInt(detail[0]) == Integer.parseInt(UserID)) {
-                return true;
-            }
-        }
-        return false;
-    }
+	private String[] fetchFileRow(int id) {
+		
+		String rowElements[];
+        boolean complete = false;
+        for(int i = 0; i < data.size() && complete == false; i++) {
+            rowElements = data.get(i).split(",");
+			if (Integer.parseInt(rowElements[0]) == id) {
+				complete = true;
+				return rowElements;
+			}
+		}
+        return null;
+	}
 }
