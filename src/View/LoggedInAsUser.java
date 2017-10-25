@@ -77,7 +77,7 @@ public class LoggedInAsUser extends LogInWindow{
 				frame.setVisible(true);
 			}
 		});
-		btnLogOut.setFont(new Font("Arial Black", Font.PLAIN, 10));
+		btnLogOut.setFont(new Font("Arial Black", Font.PLAIN, 9));
 		btnLogOut.setBounds(404, 20, 79, 24);
 		frmLoggedUser.getContentPane().add(btnLogOut);
 		
