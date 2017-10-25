@@ -7,24 +7,24 @@ public class CompositePattern {
 	
 	//at the moment i'm hard coding values in for players
 	//will use real values in future
-	Player goalie = new Player(55,"G", "Jack Deegan", "A", 7);
-	Player goalieSub = new Player (78,"G","Shane Kenny", "A", 2);
+	Player goalie = new Player(55, "Jack", "Deegan","G", 0, "MNU", 7);
+	Player goalieSub = new Player (11, "Shane", "Kenny","G", 0, "CRY", 1);
 
-    Player defender1  = new Player(56,"D", "Kieran Long", "A", 7);
-    Player defender2  = new Player(58,"D", "John Roberts", "A", 6);
-    Player defender3  = new Player(42,"D", "Brian Walsh", "A", 6);
-    Player defender4  = new Player(33,"D", "Troy Dillon", "A", 3);
-    Player defenderSub  = new Player(98,"D", "Aaron Moore", "A", 0);
+    Player defender1  = new Player(21, "Kieran", "Long","G", 0, "LIV", 7);
+    Player defender2  = new Player(48, "Brian", "Walsh","G", 0, "MNU", 7);
+    Player defender3  = new Player(54, "Troy", "Dillon","G", 0, "MNU", 7);
+    Player defender4  = new Player(66, "James","Moore","G", 0, "CHE", 7);
+    Player defenderSub  = new Player(9, "Aaron","Sullivan","G", 0, "MCI", 7);
 
-    Player midfielder1 = new Player(29,"M", "Des Bishop", "A", 2);
-    Player midfielder2 = new Player(30,"M", "James O'Sullivan", "A", 8);
-    Player midfielder3 = new Player(43,"M", "John Aherne", "A", 3);
-    Player midfielder4 = new Player(44,"M", "Jacob O'Neill", "A", 3);
-    Player midfielderSub = new Player(88,"M", "Paddy Power", "A", 1);
+    Player midfielder1 = new Player(76, "Shane", "Long","G", 0, "MCI", 7);
+    Player midfielder2 = new Player(34, "Graeme", "Gullane","G", 0, "LIV", 7);
+    Player midfielder3 = new Player(22, "Conor", "Noone","G", 0, "MNU", 7);
+    Player midfielder4 = new Player(31, "Lord", "Bendtner","G", 0, "ARS", 7);
+    Player midfielderSub = new Player(17, "Chris", "Kamara","G", 0, "TOT", 7);
 
-    Player attacker1 = new Player(39,"A", "Paddy Losty", "A", 6);
-    Player attacker2 = new Player(72,"A", "Paddy Frosty", "A", 9);
-    Player attackerSub = new Player(66,"A", "Seamus Hanz", "A", 0);
+    Player attacker1 = new Player(44, "Paddy", "Losty","G", 0, "EVE", 7);
+    Player attacker2 = new Player(77, "Paddy", "Frosty","G", 0, "WAT", 7);
+    Player attackerSub = new Player(10, "Dan", "Drake","G", 0, "MNU", 7);
     
     goalie.add(goalieSub);
     goalie.add(defender1);
