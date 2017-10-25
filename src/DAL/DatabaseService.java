@@ -25,10 +25,10 @@ public class DatabaseService implements I_DatabaseService {
 	
 	////////////////////Core Methods\\\\\\\\\\\\\\\\\\\\
 	
-	private void openFile(String filename) {		//Was Protected
+	private void openFile(String filename) {
         
 		try {
-            aFile = new File(filename);				//Not sure about this statement!!!
+            aFile = new File(filename);
             aScanner = new Scanner(aFile);
         } 
 		catch(FileNotFoundException e) {
@@ -75,8 +75,8 @@ public class DatabaseService implements I_DatabaseService {
         
 		try {
             FileWriter aFileWriter = new FileWriter(filename);
-            for (String str : newData) {						//Not sure about this statement!!!
-                aFileWriter.write(str + "\n");					//Not sure about this statement!!!
+            for (int i = 0; i < newData.size(); i++) {
+                aFileWriter.write(newData.get(i) + "\n");
             }
             aFileWriter.close();
         } 
