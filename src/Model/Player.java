@@ -7,7 +7,8 @@ import java.util.List;
 public class Player {
 	
 	private int player_id;
-	private String player_name;
+	private String player_fname;
+	private String player_lname;
 	private String player_position;
 	private int player_injured;
 	private String player_team;
@@ -18,9 +19,10 @@ public class Player {
 	//private List<Player> midfielders;
 	//private List<Player> attackers;
 
-	public Player(int player_id, String player_name, String player_position, int player_injured, String player_team, int player_points){
+	public Player(int player_id, String player_fname, String player_lname, String player_position, int player_injured, String player_team, int player_points){
 		this.player_id = player_id;
-		this.player_name = player_name;
+		this.player_fname = player_fname;
+		this.player_lname = player_lname;
 		this.player_position = player_position;
 	    this.player_injured = player_injured;
 	    this.player_team = player_team;
@@ -46,7 +48,7 @@ public class Player {
 	   }
 
 	public String toString(){
-	      return ("Name: " + player_name + "\tPosition: "+ player_position + "\tAvailability: " + player_injured + "\tTeam: " + player_team + "\t\t\tPoints: " + player_points);
+	      return ("Name: " + player_fname + player_lname + "\tPosition: "+ player_position + "\tAvailability: " + player_injured + "\tTeam: " + player_team + "\t\t\tPoints: " + player_points);
 	   }   
 	
 	/*//goalies
@@ -134,12 +136,21 @@ public class Player {
 		this.player_position = player_position;
 	}
 
-	public String getPlayer_name() {
-		return player_name;
+	public String getPlayer_fname() {
+		return player_fname;
 	}
 
-	public void setPlayer_name(String player_name) {
-		this.player_name = player_name;
+	public void setPlayer_fname(String player_fname) {
+		this.player_fname = player_fname;
+	}
+	
+
+	public String getPlayer_lname() {
+		return player_lname;
+	}
+
+	public void setPlayer_lname(String player_lname) {
+		this.player_lname = player_lname;
 	}
 
 	public int getPlayer_injured() {
