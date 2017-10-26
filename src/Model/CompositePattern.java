@@ -22,7 +22,7 @@ public class CompositePattern {
 	int player = Integer.parseInt(teamPlayersID[i]);
 	//System.out.println(player);
 	
-	test  = db_players.readFileRow(player);
+	test  = db_players.getRowData(player);
 	//System.out.println(teamPlayersID[i] + test[1]+ test[2]+ test[3]+ test[4]+ test[5]+ test[6]);
 	
 	Player goalie = new Player(Integer.parseInt(teamPlayersID[0]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
