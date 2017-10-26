@@ -25,24 +25,24 @@ public class CompositePattern {
 	test  = db_players.getRowData(player);
 	//System.out.println(teamPlayersID[i] + test[1]+ test[2]+ test[3]+ test[4]+ test[5]+ test[6]);
 	
-	Player goalie = new Player(Integer.parseInt(teamPlayersID[0]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
-	Player goalieSub = new Player (Integer.parseInt(teamPlayersID[1]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
+	Player goalie = new Player(Integer.parseInt(teamPlayersID[i]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
+	Player goalieSub = new Player (Integer.parseInt(teamPlayersID[i]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
 
-    Player defender1  = new Player(Integer.parseInt(teamPlayersID[2]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
-    Player defender2  = new Player(Integer.parseInt(teamPlayersID[3]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
-    Player defender3  = new Player(Integer.parseInt(teamPlayersID[4]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
-    Player defender4  = new Player(Integer.parseInt(teamPlayersID[5]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
-    Player defenderSub  = new Player(Integer.parseInt(teamPlayersID[6]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
+    Player defender1  = new Player(Integer.parseInt(teamPlayersID[i]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
+    Player defender2  = new Player(Integer.parseInt(teamPlayersID[i]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
+    Player defender3  = new Player(Integer.parseInt(teamPlayersID[i]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
+    Player defender4  = new Player(Integer.parseInt(teamPlayersID[i]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
+    Player defenderSub  = new Player(Integer.parseInt(teamPlayersID[i]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
 
-    Player midfielder1 = new Player(Integer.parseInt(teamPlayersID[7]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
-    Player midfielder2 = new Player(Integer.parseInt(teamPlayersID[8]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
-    Player midfielder3 = new Player(Integer.parseInt(teamPlayersID[9]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
-    Player midfielder4 = new Player(Integer.parseInt(teamPlayersID[10]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
-    Player midfielderSub = new Player(Integer.parseInt(teamPlayersID[11]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
+    Player midfielder1 = new Player(Integer.parseInt(teamPlayersID[i]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
+    Player midfielder2 = new Player(Integer.parseInt(teamPlayersID[i]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
+    Player midfielder3 = new Player(Integer.parseInt(teamPlayersID[i]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
+    Player midfielder4 = new Player(Integer.parseInt(teamPlayersID[i]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
+    Player midfielderSub = new Player(Integer.parseInt(teamPlayersID[i]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
 
-    Player attacker1 = new Player(Integer.parseInt(teamPlayersID[12]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
-    Player attacker2 = new Player(Integer.parseInt(teamPlayersID[13]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
-    Player attackerSub = new Player(Integer.parseInt(teamPlayersID[14]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
+    Player attacker1 = new Player(Integer.parseInt(teamPlayersID[i]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
+    Player attacker2 = new Player(Integer.parseInt(teamPlayersID[i]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
+    Player attackerSub = new Player(Integer.parseInt(teamPlayersID[i]),test[1], test[2], test[3], Integer.parseInt(test[4]), test[5], Integer.parseInt(test[6]));
 	
     goalie.add(goalieSub);
     goalie.add(defender1);
