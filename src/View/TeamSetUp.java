@@ -51,22 +51,22 @@ public class TeamSetUp extends CreateAccount{
 	private void initialize() {
 		frmTeamSetUp = new JFrame();
 		frmTeamSetUp.getContentPane().setBackground(new Color(240, 230, 140));
-		frmTeamSetUp.setBounds(100, 100, 509, 427);
+		frmTeamSetUp.setBounds(100, 100, 514, 423);
 		frmTeamSetUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTeamSetUp.getContentPane().setLayout(null);
 		
 		JLabel lblCsFantasyFootball = new JLabel("CS4227 Fantasy Football");
-		lblCsFantasyFootball.setFont(new Font("Arial Black", Font.BOLD, 28));
-		lblCsFantasyFootball.setBounds(10, 11, 440, 40);
+		lblCsFantasyFootball.setFont(new Font("Arial Black", Font.BOLD, 24));
+		lblCsFantasyFootball.setBounds(10, 11, 366, 40);
 		frmTeamSetUp.getContentPane().add(lblCsFantasyFootball);
 		
 		JLabel lblSelectYourTeam = new JLabel("Select Your Team");
-		lblSelectYourTeam.setFont(new Font("Arial Black", Font.BOLD, 12));
-		lblSelectYourTeam.setBounds(20, 77, 145, 30);
+		lblSelectYourTeam.setFont(new Font("Arial Black", Font.PLAIN, 14));
+		lblSelectYourTeam.setBounds(10, 77, 172, 30);
 		frmTeamSetUp.getContentPane().add(lblSelectYourTeam);
 		
 		JLabel userLabel = new JLabel("Welcome: " + username);
-		userLabel.setFont(new Font("Arial Black", Font.PLAIN, 12));
+		userLabel.setFont(new Font("Arial Black", Font.PLAIN, 14));
 		userLabel.setBounds(10, 55, 267, 24);
 		frmTeamSetUp.getContentPane().add(userLabel);
 		frmTeamSetUp.setBounds(100, 100, 509, 412);
@@ -74,11 +74,11 @@ public class TeamSetUp extends CreateAccount{
 		
 		JLabel lblTeamName = new JLabel("Team Name: ");
 		lblTeamName.setFont(new Font("Arial Black", Font.PLAIN, 12));
-		lblTeamName.setBounds(20, 105, 87, 24);
+		lblTeamName.setBounds(10, 105, 87, 24);
 		frmTeamSetUp.getContentPane().add(lblTeamName);
 		
 		textField = new JTextField();
-		textField.setBounds(106, 107, 112, 23);
+		textField.setBounds(95, 107, 112, 23);
 		frmTeamSetUp.getContentPane().add(textField);
 		textField.setColumns(10);
 		
@@ -91,7 +91,7 @@ public class TeamSetUp extends CreateAccount{
 			}
 		});
 		btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 12));
-		btnNewButton.setBounds(0, 350, 89, 23);
+		btnNewButton.setBounds(394, 25, 89, 23);
 		frmTeamSetUp.getContentPane().add(btnNewButton);
 		
 		JList list = new JList();
@@ -99,11 +99,12 @@ public class TeamSetUp extends CreateAccount{
 		frmTeamSetUp.getContentPane().add(list);
 		
 		JTextPane textPane = new JTextPane();
-		textPane.setBounds(20, 154, 287, 173);
+		textPane.setBounds(10, 154, 287, 183);
 		frmTeamSetUp.getContentPane().add(textPane);
 		
 		JLabel lblPickPlayers = new JLabel("Pick Players");
-		lblPickPlayers.setBounds(20, 130, 69, 24);
+		lblPickPlayers.setFont(new Font("Arial Black", Font.PLAIN, 12));
+		lblPickPlayers.setBounds(10, 129, 101, 24);
 		frmTeamSetUp.getContentPane().add(lblPickPlayers);
 		
 		JButton btnConfirmTeam = new JButton("Confirm Team");
@@ -111,7 +112,7 @@ public class TeamSetUp extends CreateAccount{
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnConfirmTeam.setBounds(206, 338, 101, 23);
+		btnConfirmTeam.setBounds(10, 339, 101, 23);
 		frmTeamSetUp.getContentPane().add(btnConfirmTeam);
 		
 		JButton btnViewGoalkeepers = new JButton("View Goalkeepers");

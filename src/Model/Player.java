@@ -48,7 +48,7 @@ public class Player {
 	   }
 
 	public String toString(){
-	      return ("Name: " + player_fname + player_lname + "\tPosition: "+ player_position + "\tAvailability: " + player_injured + "\tTeam: " + player_team + "\t\t\tPoints: " + player_points);
+	      return ("Name: " + player_fname +" "+player_lname + "\tPosition: "+ player_position + "\tInjured: " + player_injured + "\tTeam: " + player_team + "\tPoints: " + player_points);
 	   }   
 	
 	/*//goalies
