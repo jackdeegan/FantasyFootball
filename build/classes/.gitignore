@@ -1,8 +1,4 @@
-/View/
-/Authentication/
-/META-INF/
+/Points/
 /Model/
-<<<<<<< HEAD
-=======
-/DAL/
->>>>>>> branch 'master' of https://github.com/jackdeegan/FantasyFootball.git
+/Team.class
+/League/
