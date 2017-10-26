@@ -75,12 +75,6 @@ public class DatabaseService {
 		return fetchedRow;
 	}
 	
-	public String[] getRowData2(String username) {			//Returns row beginning with ID passed
-		String[] fetchedRowString;
-		fetchedRowString = fetchFileRowString(username);
-		return fetchedRowString;
-	}
-	
 /*	public boolean checkData(String UserID){		//This method may/may-not be used
 													//Check for injuries (STATE)???
 	List<String> cus = getData();
@@ -189,19 +183,6 @@ public class DatabaseService {
         for(int i = 0; i < data.size() && complete == false; i++) {
             rowElements = data.get(i).split(",");
 			if (Integer.parseInt(rowElements[0]) == id) {
-				complete = true;
-				return rowElements;
-			}
-		}
-        return null;
-	}
-	private String[] fetchFileRowString(String username) {
-		
-		String rowElements[];
-        boolean complete = false;
-        for(int i = 0; i < data.size() && complete == false; i++) {
-            rowElements = data.get(i).split(",");
-			if (rowElements[0] == username) {
 				complete = true;
 				return rowElements;
 			}

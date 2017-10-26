@@ -22,7 +22,7 @@ public class CompositePattern extends LogInWindow{
 		DatabaseService db_players = new DatabaseService("data/Players.txt");
 		DatabaseService db_teams = new DatabaseService("data/Teams.txt");
 		team_list = db_teams.getData();
-	
+		
 		String[] teamPlayersID = new String[14];
 		String uname;
 		
@@ -93,9 +93,3 @@ public class CompositePattern extends LogInWindow{
 		}
 	}
 }
-
-
-	
-
-	
-
