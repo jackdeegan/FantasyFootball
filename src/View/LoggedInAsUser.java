@@ -12,7 +12,7 @@ import javax.swing.SwingConstants;
 import Model.Admin;
 import Model.User;
 import View.LogInWindow;
-
+import Model.CompositePattern;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
@@ -107,10 +107,17 @@ public class LoggedInAsUser extends LogInWindow{
 		btnViewStandings.setBounds(10, 90, 112, 24);
 		frmLoggedUser.getContentPane().add(btnViewStandings);
 		
-		JButton btnEditTeam = new JButton("Edit Team");
+		JButton btnEditTeam = new JButton("Edit/View Team");
 		btnEditTeam.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnEditTeam.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				CompositePattern myTeam = new CompositePattern();
+				userList.append("");
+				
+				myTeam.printTeam();
+					
+				
 			}
 		});
 		btnEditTeam.setBounds(132, 90, 101, 24);
