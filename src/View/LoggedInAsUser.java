@@ -113,9 +113,9 @@ public class LoggedInAsUser extends LogInWindow{
 			public void actionPerformed(ActionEvent e) {
 				
 				CompositePattern myTeam = new CompositePattern();
-				userList.append("");
-				
-				myTeam.printTeam();
+				//String team = myTeam.printTeam("");
+				userList.append(myTeam.printTeam(""));
+				//myTeam.printTeam();
 					
 				
 			}

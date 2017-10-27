@@ -8,16 +8,16 @@ import View.LoggedInAsUser;
 import Model.User;
 import java.util.*;
 
-public class CompositePattern extends LogInWindow{
+public class CompositePattern extends LogInWindow implements I_Composite{
 	protected static User currentUser = LogInWindow.member;
 	public static String username = currentUser.getUsername();
 	
 	public CompositePattern() {}
 	
-	public void printTeam() {
+	public String printTeam(String team) {
 	
 		//System.out.println(username);
-		
+		//List<String> teamWithNames = new ArrayList<String>();
 		List<String> team_list = new ArrayList<String>();
 		DatabaseService db_players = new DatabaseService("data/Players.txt");
 		DatabaseService db_teams = new DatabaseService("data/Teams.txt");
@@ -78,18 +78,18 @@ public class CompositePattern extends LogInWindow{
 					attacker2.add(attackerSub);
 	
 					//Team my_Team = new Team();
-			
-					//team = goalie.toString(); 
-					System.out.println(goalie);
+					
+					team += goalie.toString() + "\n";
+					
+					//System.out.println(goalie);
 				}
-			}
 			/*for (Player start : goalie.getTeamMembers()) {
        			System.out.println(start);
     	
        			for (Player finish : start.getTeamMembers()) {
           		System.out.println(finish);
-       			}
-    		}*/
-		}
+       			}*/
+    		}
+		}return team;
 	}
 }

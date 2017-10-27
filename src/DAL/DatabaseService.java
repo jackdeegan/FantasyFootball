@@ -131,7 +131,7 @@ public class DatabaseService {
 */		
 	////////////////////Private Methods\\\\\\\\\\\\\\\\\\\\
 	
-	private void writeData(List<String> newData) {
+	public void writeData(List<String> newData) {
 
 		try {
 				FileWriter aFileWriter = new FileWriter(filename);

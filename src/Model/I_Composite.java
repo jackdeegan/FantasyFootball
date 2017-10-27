@@ -1,5 +1,5 @@
 package Model;
 
 public interface I_Composite{
-	public void printTeam();
+	public String printTeam(String team);
 }
