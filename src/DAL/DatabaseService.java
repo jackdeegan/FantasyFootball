@@ -56,79 +56,25 @@ public class DatabaseService {
         return data;      
     }
 	
-	public void deleteData(int id) {				//Deletes row beginning with ID passed
-        deleteFileRow(id);
-    }		
-	
-	public void changeData(String changedRow) { 	//Changes row with corresponding ID
-		changeFileRow(changedRow);    
-    }                 
-	
-	public void addData(String info) {				//Adds a new row to the text file
-        data.add(info);
-        writeData(data);
-    }
-	
 	public String[] getRowData(int id) {			//Returns row beginning with ID passed
 		String[] fetchedRow;
 		fetchedRow = fetchFileRow(id);
 		return fetchedRow;
 	}
 	
-/*	public boolean checkData(String UserID){		//This method may/may-not be used
-													//Check for injuries (STATE)???
-	List<String> cus = getData();
-    for (int i = 0; i < cus.size(); i++) {
-        String[] detail = cus.get(i).split(",");
-        if (Integer.parseInt(detail[0]) == Integer.parseInt(UserID)) {
-            return true;
-        }
+	public void addData(String info) {				//Adds a new row to the text file
+        data.add(info);
+        writeData(data);
     }
-    return false;
-}
-
-	////////////////////METHODS TO BE DELETED BUT CURRENTLY IN USE BY OTHERS\\\\\\\\\\\\\\\\\\\\
-
-/*	public String[] readFileRow(int id) {
-		
-        String[] rowElements;
-        boolean complete = false;
-        for(int i = 0; i < data.size() && complete == false; i++) {
-            rowElements = data.get(i).split(",");
-            try {
-                if (Integer.parseInt(rowElements[0]) == id) {
-                    return rowElements;
-                }
-            } catch (NumberFormatException e) {
-            	System.out.println("Exception: " + e + "\n Exiting program.");
-				System.exit(0);
-			}
-        }
-
-        return null;
+	
+	public void changeData(String changedRow) { 	//Changes row with corresponding ID
+		changeFileRow(changedRow);    
+    }  
+	
+	public void deleteData(int id) {				//Deletes row beginning with ID passed
+        deleteFileRow(id);
     }
-*/	
-/*	private void updateFileRow(String[] newRow) {
-        
-		String newLine = "";
-        String[] rowElements;
-        for(int i = 0; i < data.size(); i++) {
-            rowElements = data.get(i).split(",");
-            if(Integer.parseInt(rowElements[0]) == Integer.parseInt(newRow[0])) {
-                for (int j = 0; j < newRow.length; j++) 
-				{
-                    newLine += newRow[j];
-                    if (j != (newRow.length - 1)) {
-                        newLine += ",";
-                    }
-                }
-                data.add(newLine);
-                data.remove(i);
-                newLine = "";
-            }
-        }
-    }
-*/		
+	
 	////////////////////Private Methods\\\\\\\\\\\\\\\\\\\\
 	
 	public void writeData(List<String> newData) {
