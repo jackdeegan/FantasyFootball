@@ -11,7 +11,3 @@ public class LeagueCaretaker {
 		return savedLeagues.get(index);
 	}
 }
-	
-	
-
-

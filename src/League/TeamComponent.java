@@ -31,6 +31,14 @@ public abstract class TeamComponent{
     	
 		throw new UnsupportedOperationException();
     }
+    public String getName() {
+		throw new UnsupportedOperationException();
+
+    }
+    public String getDescription() {
+		throw new UnsupportedOperationException();
+
+    }
     
     public int getPoints() {
 		throw new UnsupportedOperationException();
