@@ -51,7 +51,7 @@ public class TeamSetUp extends CreateAccount{
 	private void initialize() {
 		frmTeamSetUp = new JFrame();
 		frmTeamSetUp.getContentPane().setBackground(new Color(240, 230, 140));
-		frmTeamSetUp.setBounds(100, 100, 514, 423);
+		frmTeamSetUp.setBounds(100, 100, 509, 458);
 		frmTeamSetUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTeamSetUp.getContentPane().setLayout(null);
 		

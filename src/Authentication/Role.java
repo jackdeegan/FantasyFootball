@@ -4,6 +4,7 @@ public class Role {
 	
 		private boolean isAdmin = false;
 		private boolean isUser = false;
+		private boolean isBanned = false;
 		
 		// The token can hold the state and the perms of a user. We can check the UI against the perms
 		// If the Token has manager as false, then that use cannot purchase more stock for the books.
@@ -15,12 +16,21 @@ public class Role {
 				
 				this.isAdmin = false;
 				this.isUser = true;
+				this.isBanned = false;
 				
 			}
 			else if(rankNumber.equals("2")) {
 				
 				this.isAdmin = true;
 				this.isUser = false;
+				this.isBanned = false;
+			}
+			
+			else if(rankNumber.equals("3")){
+				
+				this.isAdmin = false;
+				this.isUser = false;
+				this.isBanned = true;
 			}
 			
 		}
@@ -31,6 +41,10 @@ public class Role {
 
 		public boolean getPlayer(){
 			return this.isUser;
+		}
+		
+		public boolean getBannedUser(){
+			return this.isBanned;
 		}
 
 		

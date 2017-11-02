@@ -41,6 +41,8 @@ final private static File usersFile = new File("data/Users.txt");
 								return new Admin(info[0], new Role(info[2]));
 							case "2":  
 								return new User(info[0], new Role(info[2]));
+							case "3":
+								return new User(info[0], new Role(info[2]));
 							
 						}
 

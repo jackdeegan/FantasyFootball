@@ -120,6 +120,12 @@ public class LogInWindow extends MainGUI{
 					window.startLoggedAdmin();
 				}
 				
+				else if (role.getBannedUser()){
+					BannedView window = new BannedView();
+					frmLogIn.hide();
+					window.startBannedUser();
+				}
+				
 			}
 				
 			
