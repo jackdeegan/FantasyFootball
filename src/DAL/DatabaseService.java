@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class DatabaseService {								//Database Service
+public class DatabaseService {
 
     private List<String> data = new ArrayList<String>();
     private File aFile;
