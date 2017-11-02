@@ -1,8 +1,14 @@
 /Authentication/
 /DAL/
 /League/
+<<<<<<< Upstream, based on origin/master
 /META-INF/
 /Model/
 /Points/
 /View/
 /CommandDP/
+=======
+/Model/
+/Points/
+/DAL/
+>>>>>>> c0ed021 update
