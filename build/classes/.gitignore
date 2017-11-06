@@ -2,7 +2,17 @@
 /CommandDP/
 /DAL/
 /League/
+<<<<<<< Upstream, based on origin/master
 /META-INF/
 /Model/
 /Points/
 /View/
+<<<<<<< HEAD
+/CommandDP/
+=======
+/Model/
+/Points/
+/DAL/
+>>>>>>> c0ed021 update
+=======
+>>>>>>> branch 'master' of https://github.com/jackdeegan/FantasyFootball.git

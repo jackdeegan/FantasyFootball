@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class LeagueMemento {
 	
-	ArrayList<Team> league = new ArrayList<Team>();
+	TeamComponent league;
 	
-	 public LeagueMemento(ArrayList<Team> leagueSave){
-		 league = leagueSave;
+	 public LeagueMemento(TeamComponent leagueTemp){
+		 league = leagueTemp;
 		 }
-	 public ArrayList<Team> getSavedLeague(){
+	 public TeamComponent getSavedLeague(){
 		 return league;
 		 }
 	 
