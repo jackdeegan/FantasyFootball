@@ -84,15 +84,6 @@ public class LoggedInAdmin extends LogInWindow{
 		lblWelcomeBack.setBounds(10, 57, 308, 23);
 		frmLoggedAdmin.getContentPane().add(lblWelcomeBack);
 		
-		JButton btnViewWeeklyStandings = new JButton("View Standings");
-		btnViewWeeklyStandings.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnViewWeeklyStandings.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		btnViewWeeklyStandings.setBounds(7, 91, 117, 23);
-		frmLoggedAdmin.getContentPane().add(btnViewWeeklyStandings);
-		
 		JTextArea userList = new JTextArea();
 		userList.setBounds(10, 135, 364, 229);
 		frmLoggedAdmin.getContentPane().add(userList);
@@ -101,6 +92,30 @@ public class LoggedInAdmin extends LogInWindow{
 		scroll.setViewportView(userList);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		frmLoggedAdmin.getContentPane().add(scroll);
+		
+		JButton btnViewWeeklyStandings = new JButton("View Standings");
+		btnViewWeeklyStandings.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					aFile = new FileReader("data/Scores.txt");
+					String[] scores;
+					in = new Scanner(aFile);
+					userList.setText("League Table:\n");
+					while (in.hasNext()) {
+						scores = in.nextLine().split(",");
+						userList.append(scores[0] + " - " + scores[1] + "\n");
+
+					}
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnViewWeeklyStandings.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnViewWeeklyStandings.setBounds(7, 91, 117, 23);
+		frmLoggedAdmin.getContentPane().add(btnViewWeeklyStandings);
+		
 		
 		JButton btnViewbanUsers = new JButton("View/Ban Users");
 		btnViewbanUsers.setFont(new Font("Tahoma", Font.PLAIN, 10));

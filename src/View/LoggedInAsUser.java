@@ -102,6 +102,20 @@ public class LoggedInAsUser extends LogInWindow{
 		btnViewStandings.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnViewStandings.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					aFile = new FileReader("data/Scores.txt");
+					String[] scores;
+					in = new Scanner(aFile);
+					userList.setText("League Table:\n");
+					while (in.hasNext()) {
+						scores = in.nextLine().split(",");
+						userList.append(scores[0] + " - " + scores[1] + "\n");
+
+					}
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnViewStandings.setBounds(10, 90, 112, 24);

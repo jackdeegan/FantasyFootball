@@ -11,5 +11,4 @@ public class Fixtures {
 	public void getTeamList() {
 		teamList.displayTeamInfo();
 	}
-
 }
