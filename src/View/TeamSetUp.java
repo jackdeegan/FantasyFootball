@@ -21,6 +21,7 @@ public class TeamSetUp extends CreateAccount{
 	JFrame frmTeamSetUp;
 	private JTextField textField;
 	public static String username = CreateAccount.username;
+	
 
 	/**
 	 * Launch the application.
