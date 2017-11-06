@@ -26,7 +26,7 @@
 59,Laurent,Koscielny,D,0,ARS,0
 60,Rob,Holding,D,0,ARS,0
 5,Paul,Pogba,M,0,MNU,0
-6,Nemanje,Matic,M,0,MNU,0
+6,Nemanja,Matic,M,0,MNU,0
 7,Jesse,Lingard,M,0,MNU,0
 8,Michael,Carrick,M,0,MNU,0
 16,Danny,Drinkwater,M,0,CHE,0

@@ -12,15 +12,22 @@ import Model.User;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
+import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
 public class TeamSetUp extends CreateAccount{
 
 	JFrame frmTeamSetUp;
-	private JTextField textField;
 	public static String username = CreateAccount.username;
+	public JTextArea textArea = new JTextArea();
+	private FileReader aFile;
+	private Scanner in;
+	private JTextField playerEntryField;
 
 	/**
 	 * Launch the application.
@@ -51,7 +58,7 @@ public class TeamSetUp extends CreateAccount{
 	private void initialize() {
 		frmTeamSetUp = new JFrame();
 		frmTeamSetUp.getContentPane().setBackground(new Color(240, 230, 140));
-		frmTeamSetUp.setBounds(100, 100, 509, 458);
+		frmTeamSetUp.setBounds(100, 100, 607, 508);
 		frmTeamSetUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTeamSetUp.getContentPane().setLayout(null);
 		
@@ -61,7 +68,7 @@ public class TeamSetUp extends CreateAccount{
 		frmTeamSetUp.getContentPane().add(lblCsFantasyFootball);
 		
 		JLabel lblSelectYourTeam = new JLabel("Select Your Team");
-		lblSelectYourTeam.setFont(new Font("Arial Black", Font.PLAIN, 14));
+		lblSelectYourTeam.setFont(new Font("Arial Black", Font.PLAIN, 12));
 		lblSelectYourTeam.setBounds(10, 77, 172, 30);
 		frmTeamSetUp.getContentPane().add(lblSelectYourTeam);
 		
@@ -72,39 +79,13 @@ public class TeamSetUp extends CreateAccount{
 		frmTeamSetUp.setBounds(100, 100, 509, 412);
 		frmTeamSetUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel lblTeamName = new JLabel("Team Name: ");
-		lblTeamName.setFont(new Font("Arial Black", Font.PLAIN, 12));
-		lblTeamName.setBounds(10, 105, 87, 24);
-		frmTeamSetUp.getContentPane().add(lblTeamName);
-		
-		textField = new JTextField();
-		textField.setBounds(95, 107, 112, 23);
-		frmTeamSetUp.getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		JButton btnNewButton = new JButton("HOME");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frmTeamSetUp.hide();
-				frame.setVisible(true);
-				
-			}
-		});
-		btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 12));
-		btnNewButton.setBounds(394, 25, 89, 23);
-		frmTeamSetUp.getContentPane().add(btnNewButton);
-		
 		JList list = new JList();
 		list.setBounds(117, 338, 101, -138);
 		frmTeamSetUp.getContentPane().add(list);
 		
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(10, 154, 287, 183);
-		frmTeamSetUp.getContentPane().add(textPane);
-		
 		JLabel lblPickPlayers = new JLabel("Pick Players");
 		lblPickPlayers.setFont(new Font("Arial Black", Font.PLAIN, 12));
-		lblPickPlayers.setBounds(10, 129, 101, 24);
+		lblPickPlayers.setBounds(10, 100, 101, 24);
 		frmTeamSetUp.getContentPane().add(lblPickPlayers);
 		
 		JButton btnConfirmTeam = new JButton("Confirm Team");
@@ -154,5 +135,30 @@ public class TeamSetUp extends CreateAccount{
 		});
 		btnViewPlayersPoints.setBounds(356, 291, 117, 23);
 		frmTeamSetUp.getContentPane().add(btnViewPlayersPoints);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(10, 135, 307, 192);
+		frmTeamSetUp.getContentPane().add(textArea);
+		
+		playerEntryField = new JTextField();
+		playerEntryField.setBounds(117, 338, 101, 20);
+		frmTeamSetUp.getContentPane().add(playerEntryField);
+		playerEntryField.setColumns(10);
+		
+		JButton btnSelect = new JButton("Select");
+		btnSelect.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnSelect.setBounds(228, 338, 89, 23);
+		frmTeamSetUp.getContentPane().add(btnSelect);
+		
+		JButton btnClearSelection = new JButton("Clear Selection");
+		btnClearSelection.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnClearSelection.setBounds(326, 338, 117, 23);
+		frmTeamSetUp.getContentPane().add(btnClearSelection);
 	}
 }
