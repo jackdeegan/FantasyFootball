@@ -173,7 +173,10 @@ public class LoggedInAdmin extends LogInWindow{
 		btnAddResult.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnAddResult.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ResultsPage results = new ResultsPage();
+				results.startResults();
 			}
+			
 		});
 		btnAddResult.setBounds(388, 91, 115, 23);
 		frmLoggedAdmin.getContentPane().add(btnAddResult);
