@@ -24,10 +24,13 @@ public class TeamSetUp extends CreateAccount{
 
 	JFrame frmTeamSetUp;
 	public static String username = CreateAccount.username;
+
 	public JTextArea textArea = new JTextArea();
 	private FileReader aFile;
 	private Scanner in;
 	private JTextField playerEntryField;
+
+
 
 	/**
 	 * Launch the application.
