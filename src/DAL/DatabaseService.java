@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class DatabaseService {
 
-    private List<String> data = new ArrayList<String>();
+    protected List<String> data = new ArrayList<String>();
     private File aFile;
     private Scanner aScanner;
     private String filename;
@@ -75,6 +75,28 @@ public class DatabaseService {
         deleteFileRow(id);
     }
 	
+	public String verifyData(int id) {				//Verifies an aspect of data relating to the id passed
+		String element = "";
+		element = checkData(id);
+		return element;
+	}
+	
+	public List<String> getAllGoalkeepers() {		//Returns list of all selectable Goalkeepers
+		return null;
+	}
+	
+	public List<String> getAllDefenders() {			//Returns list of all selectable Defenders
+		return null;
+	}
+	
+	public List<String> getAllMidfielders() {		//Returns list of all selectable Midfielders
+		return null;
+	}
+	
+	public List<String> getAllForwards() {			//Returns list of all selectable Forwards
+		return null;
+	}
+	
 	////////////////////Private Methods\\\\\\\\\\\\\\\\\\\\
 	
 	public void writeData(List<String> newData) {
@@ -131,6 +153,22 @@ public class DatabaseService {
 			if (Integer.parseInt(rowElements[0]) == id) {
 				complete = true;
 				return rowElements;
+			}
+		}
+        return null;
+	}
+	
+	private String checkData(int id) {
+		
+		String element;
+		String rowElements[];
+        boolean complete = false;
+        for(int i = 0; i < data.size() && complete == false; i++) {
+            rowElements = data.get(i).split(",");
+			if (Integer.parseInt(rowElements[0]) == id) {
+				complete = true;
+				element = rowElements[3];
+				return element;
 			}
 		}
         return null;

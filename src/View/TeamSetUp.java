@@ -8,20 +8,28 @@ import java.awt.Font;
 import javax.swing.JTextField;
 
 import Model.User;
+import Model.Team;
+import DAL.AccessPlayers;
+import DAL.DatabaseService;
 
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
 public class TeamSetUp extends CreateAccount{
 
+	private DatabaseService playersDB = new AccessPlayers();
 	JFrame frmTeamSetUp;
 	public static String username = CreateAccount.username;
 
@@ -29,6 +37,8 @@ public class TeamSetUp extends CreateAccount{
 	private FileReader aFile;
 	private Scanner in;
 	private JTextField playerEntryField;
+	private String teamSelection = username;
+	private String regex = "[0-9]+";
 
 
 
@@ -94,6 +104,17 @@ public class TeamSetUp extends CreateAccount{
 		JButton btnConfirmTeam = new JButton("Confirm Team");
 		btnConfirmTeam.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String result = "";
+				result = Team.checkTeam(teamSelection);
+				if (result.equals("Team Created Successfully!")) {
+					JOptionPane.showMessageDialog(null, result);
+					System.exit(0);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, result + "\n\nResetting...");
+					teamSelection = username;
+					textArea.setText("");
+				}
 			}
 		});
 		btnConfirmTeam.setBounds(10, 339, 101, 23);
@@ -102,6 +123,12 @@ public class TeamSetUp extends CreateAccount{
 		JButton btnViewGoalkeepers = new JButton("View Goalkeepers");
 		btnViewGoalkeepers.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				List<String> goalkeeperList = new ArrayList<String>();
+				goalkeeperList = playersDB.getAllGoalkeepers();
+				textArea.setText("Goalkeepers: \n");
+				for (int i = 0; i < goalkeeperList.size(); i++) {
+					textArea.append(goalkeeperList.get(i) + "\n");				//FOR KIERAN TO FIX
+				}
 			}
 		});
 		btnViewGoalkeepers.setBounds(356, 154, 117, 23);
@@ -110,6 +137,12 @@ public class TeamSetUp extends CreateAccount{
 		JButton btnViewDefenders = new JButton("View Defenders");
 		btnViewDefenders.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textArea.setText("Defenders: \n");
+				List<String> defenderList = new ArrayList<String>();
+				defenderList = playersDB.getAllDefenders();
+				for (int i = 0; i < defenderList.size(); i++) {
+					textArea.append(defenderList.get(i) + "\n");				//FOR KIERAN TO FIX
+				}
 			}
 		});
 		btnViewDefenders.setBounds(356, 189, 117, 23);
@@ -118,6 +151,12 @@ public class TeamSetUp extends CreateAccount{
 		JButton btnViewMidfielders = new JButton("View Midfielders");
 		btnViewMidfielders.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textArea.setText("Midfielders: \n");
+				List<String> midfielderList = new ArrayList<String>();
+				midfielderList = playersDB.getAllMidfielders();
+				for (int i = 0; i < midfielderList.size(); i++) {
+					textArea.append(midfielderList.get(i) + "\n");				//FOR KIERAN TO FIX
+				}
 			}
 		});
 		btnViewMidfielders.setBounds(356, 223, 117, 23);
@@ -126,6 +165,12 @@ public class TeamSetUp extends CreateAccount{
 		JButton btnViewForwards = new JButton("View Forwards");
 		btnViewForwards.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textArea.setText("Forwards: \n");
+				List<String> forwardList = new ArrayList<String>();
+				forwardList = playersDB.getAllForwards();
+				for (int i = 0; i < forwardList.size(); i++) {
+					textArea.append(forwardList.get(i) + "\n");					//FOR KIERAN TO FIX
+				}
 			}
 		});
 		btnViewForwards.setBounds(356, 257, 117, 23);
@@ -151,6 +196,25 @@ public class TeamSetUp extends CreateAccount{
 		JButton btnSelect = new JButton("Select");
 		btnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String input = playerEntryField.getText();
+				String playerRow[];
+				if (!(input.matches(regex)))
+					JOptionPane.showMessageDialog(null, "Invalid Selection!");
+				else {
+					teamSelection = teamSelection + "," + input;
+					try {
+						playerRow = playersDB.getRowData(Integer.parseInt(input));
+						for (int i = 0; i < playerRow.length; i++) {
+							if (i == (playerRow.length - 1))
+								textArea.append(playerRow[i] + "\n");
+							else
+								textArea.append(playerRow[i] + ",");
+						}
+					}
+					catch(InputMismatchException e1) {
+						JOptionPane.showMessageDialog(null, "Invalid Selection!");
+					}
+				}
 			}
 		});
 		btnSelect.setBounds(228, 338, 89, 23);
@@ -159,6 +223,9 @@ public class TeamSetUp extends CreateAccount{
 		JButton btnClearSelection = new JButton("Clear Selection");
 		btnClearSelection.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				teamSelection = username;
+				JOptionPane.showMessageDialog(null, "Selections Cleared!");
+				textArea.setText("");
 			}
 		});
 		btnClearSelection.setBounds(326, 338, 117, 23);

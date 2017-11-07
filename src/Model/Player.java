@@ -2,7 +2,8 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import DAL.AccessPlayers;
+import DAL.DatabaseService;
 
 public class Player {
 	
@@ -33,6 +34,7 @@ public class Player {
 	    //midfielders = new ArrayList<Player>();
 	    //attackers = new ArrayList<Player>();
 	}
+	
 	
 	//team
 	public void add(Player p) {
