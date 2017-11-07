@@ -121,14 +121,14 @@ public class LoggedInAsUser extends LogInWindow{
 		btnViewStandings.setBounds(10, 90, 112, 24);
 		frmLoggedUser.getContentPane().add(btnViewStandings);
 		
-		JButton btnEditTeam = new JButton("Edit/View Team");
+		JButton btnEditTeam = new JButton("View Team");
 		btnEditTeam.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnEditTeam.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				CompositePattern myTeam = new CompositePattern();
 				//String team = myTeam.printTeam("");
-				userList.append(myTeam.printTeam(""));
+				userList.setText(myTeam.printTeam(""));
 				//myTeam.printTeam();
 					
 				

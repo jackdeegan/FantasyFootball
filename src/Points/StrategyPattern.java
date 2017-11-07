@@ -20,7 +20,6 @@ public class StrategyPattern {
 	  List<String> result_list = new ArrayList<String>();
 	  result_list = db_result.getData();
 	  
-	  
 	  String homeTeam;
 	  String awayTeam;
 	  int homeScore = 0;
@@ -57,7 +56,6 @@ public class StrategyPattern {
 					 if(playerTeam.equals(homeTeam) && awayScore == 2) {
 						totalDeducted = context.executeStrategy(num1,0); 
 						System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Deducted: "+totalDeducted);
-						
 					 }
 					 else if(playerTeam.equals(awayTeam) && homeScore == 2) {
 							totalDeducted = context.executeStrategy(num1,0); 
@@ -76,7 +74,6 @@ public class StrategyPattern {
 				  }
 			  }
 		  }
-	  }
-	  
+	  } 
    }
 }

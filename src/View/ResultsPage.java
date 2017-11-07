@@ -15,6 +15,7 @@ import java.util.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
@@ -86,6 +87,12 @@ public class ResultsPage extends LoggedInAdmin{
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(10, 87, 350, 175);
 		frmResults.getContentPane().add(textArea);
+		JScrollPane scroll = new JScrollPane(textArea);
+		scroll.setBounds(10, 87, 350, 165);
+		scroll.setViewportView(textArea);
+		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		frmResults.getContentPane().add(scroll);
+		
 		
 			
 			JButton btnShow = new JButton("Show");
@@ -95,19 +102,18 @@ public class ResultsPage extends LoggedInAdmin{
 						aFile = new FileReader("data/Fixtures.txt");
 						String[] fixtures;
 						in = new Scanner(aFile);
-						textArea.setText("Week 1 Fixtures:\n");
+						//textArea.setText("Week 1 Fixtures:\n");
 					
 					while (in.hasNext()) {
 						fixtures = in.nextLine().split(",");
-						textArea.append("Game " + fixtures[0] + ": " + fixtures[1] + " vs " + fixtures[2] + "\n");
+						textArea.append(fixtures[0] + ",\n");
 					}
 					
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				}
-					
+			}
 				
 			});
 			btnShow.setBounds(111, 53, 80, 23);
@@ -117,12 +123,6 @@ public class ResultsPage extends LoggedInAdmin{
 			btnSaveResults.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					String details = textArea.getText();
-					List<String> myList = new ArrayList<String>(Arrays.asList(details.split(",")));
-					for(int i = 0; i < myList.size();i++) {
-						String temp = myList.get(i);
-						
-					
-					
 					try {
 						
 						pw = new PrintWriter(new FileWriter("data/Results1.txt"), true);
@@ -135,14 +135,8 @@ public class ResultsPage extends LoggedInAdmin{
 						e1.printStackTrace();
 					}
 				}
-				}
 			});
 			btnSaveResults.setBounds(10, 273, 105, 23);
 			frmResults.getContentPane().add(btnSaveResults);
-		
-		
-		
-		
-		
 	}
 }
