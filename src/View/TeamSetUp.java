@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.awt.event.ActionEvent;
@@ -112,6 +113,7 @@ public class TeamSetUp extends CreateAccount{
 				else {
 					JOptionPane.showMessageDialog(null, result + "\n\nResetting...");
 					teamSelection = username;
+					textArea.setText("");
 				}
 			}
 		});
@@ -125,7 +127,7 @@ public class TeamSetUp extends CreateAccount{
 				goalkeeperList = playersDB.getAllGoalkeepers();
 				textArea.setText("Goalkeepers: \n");
 				for (int i = 0; i < goalkeeperList.size(); i++) {
-					textArea.append(goalkeeperList.get(i) + "\n");
+					textArea.append(goalkeeperList.get(i) + "\n");				//FOR KIERAN TO FIX
 				}
 			}
 		});
@@ -139,7 +141,7 @@ public class TeamSetUp extends CreateAccount{
 				List<String> defenderList = new ArrayList<String>();
 				defenderList = playersDB.getAllDefenders();
 				for (int i = 0; i < defenderList.size(); i++) {
-					textArea.append(defenderList.get(i) + "\n");
+					textArea.append(defenderList.get(i) + "\n");				//FOR KIERAN TO FIX
 				}
 			}
 		});
@@ -153,7 +155,7 @@ public class TeamSetUp extends CreateAccount{
 				List<String> midfielderList = new ArrayList<String>();
 				midfielderList = playersDB.getAllMidfielders();
 				for (int i = 0; i < midfielderList.size(); i++) {
-					textArea.append(midfielderList.get(i) + "\n");
+					textArea.append(midfielderList.get(i) + "\n");				//FOR KIERAN TO FIX
 				}
 			}
 		});
@@ -167,7 +169,7 @@ public class TeamSetUp extends CreateAccount{
 				List<String> forwardList = new ArrayList<String>();
 				forwardList = playersDB.getAllForwards();
 				for (int i = 0; i < forwardList.size(); i++) {
-					textArea.append(forwardList.get(i) + "\n");
+					textArea.append(forwardList.get(i) + "\n");					//FOR KIERAN TO FIX
 				}
 			}
 		});
@@ -195,10 +197,24 @@ public class TeamSetUp extends CreateAccount{
 		btnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String input = playerEntryField.getText();
+				String playerRow[];
 				if (!(input.matches(regex)))
 					JOptionPane.showMessageDialog(null, "Invalid Selection!");
-				else
+				else {
 					teamSelection = teamSelection + "," + input;
+					try {
+						playerRow = playersDB.getRowData(Integer.parseInt(input));
+						for (int i = 0; i < playerRow.length; i++) {
+							if (i == (playerRow.length - 1))
+								textArea.append(playerRow[i] + "\n");
+							else
+								textArea.append(playerRow[i] + ",");
+						}
+					}
+					catch(InputMismatchException e1) {
+						JOptionPane.showMessageDialog(null, "Invalid Selection!");
+					}
+				}
 			}
 		});
 		btnSelect.setBounds(228, 338, 89, 23);
@@ -209,6 +225,7 @@ public class TeamSetUp extends CreateAccount{
 			public void actionPerformed(ActionEvent e) {
 				teamSelection = username;
 				JOptionPane.showMessageDialog(null, "Selections Cleared!");
+				textArea.setText("");
 			}
 		});
 		btnClearSelection.setBounds(326, 338, 117, 23);
