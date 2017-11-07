@@ -24,6 +24,7 @@ import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
@@ -184,9 +185,13 @@ public class TeamSetUp extends CreateAccount{
 		btnViewPlayersPoints.setBounds(356, 291, 117, 23);
 		frmTeamSetUp.getContentPane().add(btnViewPlayersPoints);
 		
-		JTextArea textArea = new JTextArea();
 		textArea.setBounds(10, 135, 307, 192);
 		frmTeamSetUp.getContentPane().add(textArea);
+		JScrollPane scroll = new JScrollPane(textArea);
+		scroll.setBounds(10, 135, 307, 182);
+		scroll.setViewportView(textArea);
+		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		frmTeamSetUp.getContentPane().add(scroll);
 		
 		playerEntryField = new JTextField();
 		playerEntryField.setBounds(117, 338, 101, 20);

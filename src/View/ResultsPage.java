@@ -7,6 +7,10 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
+import java.io.PrintWriter;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.util.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,7 +29,9 @@ public class ResultsPage extends LoggedInAdmin{
 	public JTextArea userlist = new JTextArea();
 	private FileReader aFile;
 	private Scanner in;
-
+	private PrintWriter pw;
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -110,8 +116,25 @@ public class ResultsPage extends LoggedInAdmin{
 			JButton btnSaveResults = new JButton("Save Results");
 			btnSaveResults.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					String details = textArea.getText();
+					List<String> myList = new ArrayList<String>(Arrays.asList(details.split(",")));
+					for(int i = 0; i < myList.size();i++) {
+						String temp = myList.get(i);
+						
 					
 					
+					try {
+						
+						pw = new PrintWriter(new FileWriter("data/Results1.txt"), true);
+						pw.println(details);
+						pw.close();
+					}
+					
+					catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
 				}
 			});
 			btnSaveResults.setBounds(10, 273, 105, 23);

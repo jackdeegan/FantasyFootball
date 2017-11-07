@@ -1,0 +1,12 @@
+Week 1 Fixtures:
+Game 1: BOU vs MUN,2,2
+Game 2: ARS vs LIV,2,2
+Game 3: BUR vs SWA
+Game 4: CHE vs WHU
+Game 5: CRY vs WBA
+Game 6: EVE vs TOT
+Game 7: HUL vs LCY
+Game 8: MCI vs SUN
+Game 9: MID vs STK
+Game 10: SOU vs WAT
+
