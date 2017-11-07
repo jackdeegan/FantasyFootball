@@ -1,47 +1,54 @@
 package DAL;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AccessPlayers  extends DatabaseService  {
 
     public AccessPlayers() {
-        super("../data/FPlayers.txt");
+        super("./data/Players.txt");
 
     }
+    
+    @Override
+    public List<String> getAllGoalkeepers() {
+    	List<String> goalkeeperList = new ArrayList<String>();
+    	goalkeeperList = retrievePositionList("G");
+    	return goalkeeperList;
+    }
+    
+    @Override
+    public List<String> getAllDefenders() {
+    	List<String> defenderList = new ArrayList<String>();
+    	defenderList = retrievePositionList("D");
+		return defenderList;
+    }
+    
+    @Override
+    public List<String> getAllMidfielders() {
+    	List<String> midfielderList = new ArrayList<String>();
+    	midfielderList = retrievePositionList("M");
+		return midfielderList;
+    }
+    
+    @Override
+    public List<String> getAllForwards() {
+    	List<String> forwardList = new ArrayList<String>();
+    	forwardList = retrievePositionList("F");
+		return forwardList;
+    }
+    
+    private List<String> retrievePositionList(String pos) {
+    	
+    	List<String> goalkeeperList = new ArrayList<String>();
+    	String rowElements[];
+        for(int i = 0; i < data.size(); i++) {
+        	rowElements = data.get(i).split(",");
+    		if (rowElements[3].equals("G")) {
+    			goalkeeperList.add(data.get(i));
+    		}
+    	}
+		return goalkeeperList;
+    }
+    
 }
-
-/*	public boolean checkData(String UserID){		//Check for injuries (STATE)???
-		
-		List<String> cus = getData();
-		for (int i = 0; i < cus.size(); i++) {
-			String[] detail = cus.get(i).split(",");
-			if (Integer.parseInt(detail[0]) == Integer.parseInt(UserID)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-   @Override
-    public void changeData(int id) {
-        List<String> fileData = super.getData();
-
-        for(int i = 1; i < fileData.size(); i++){
-            String[] detail = fileData.get(i).split(",");
-            if(Integer.parseInt(detail[0]) == id && detail[6].equalsIgnoreCase("ACCEPTED")){
-                detail[6] = "PACKING";
-                fileData.set(i,parseIntoString(detail));
-            }
-        }
-        super.writeData(fileData);
-    }
-
-    public String parseIntoString(String[] order){
-        String temp = "";
-        for(int i = 0; i < order.length; ++i){
-            if(i ==0)
-                temp += order[i];
-            else
-                temp += "," + order[i];
-        }
-            return temp;
-    }
-*/
