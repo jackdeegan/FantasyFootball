@@ -36,8 +36,8 @@ public class StrategyPattern {
 	  
 	  String homeTeam;
 	  String awayTeam;
-	  int homeScore;
-	  int awayScore;
+	  int homeScore = 0;
+	  int awayScore = 0;
 	  String playerPosition;
 	  String playerTeam;
 	  String playerName;
@@ -46,54 +46,54 @@ public class StrategyPattern {
 	  int num2 = -2;
 	  int totalDeducted = 0;
 	  
-	  /*for(int i = 0; i <= 9; i++) {
-		  String fixture = fixture_list.get(i);
-		  homeTeam[i] = fixture.substring(fixture.indexOf(",")+1, fixture.indexOf(",")+4);
-		  awayTeam[i] = fixture.substring(fixture.indexOf(",")+5,fixture.indexOf(",")+8);
-		  System.out.println(homeTeam[i] +" v "+awayTeam[i]);
-	  }*/
-	  for(int i = 0; i < 10; i++) {
+	 for(int i = 0; i < 10; i++) {
 		  String fixture = fixture_list.get(i);
 		  homeTeam = fixture.substring(fixture.indexOf(",")+1, fixture.indexOf(",")+4);
 		  awayTeam = fixture.substring(fixture.indexOf(",")+5,fixture.indexOf(",")+8);
 		  //System.out.println(homeTeam +" v "+awayTeam);
-		  for(int j = 0; j < 10; j++) {
+		  
+		  for(int j = i; j <= i ; j++) {
+			  
 			  String result = result_list.get(j);
 			  homeScore = Integer.parseInt(result.substring(result.indexOf(",")+1, result.indexOf(",")+2));
 			  awayScore = Integer.parseInt(result.substring(result.indexOf(",")+3, result.indexOf(",")+4));
-			  //System.out.println(homeScore +" v "+awayScore);
+			  System.out.println(homeTeam +" v "+awayTeam);
+			  System.out.println(homeScore +" v "+awayScore);
+			  
 			  for(int k = 0; k < player_list.size();k++) {
+				  
 				  String player = player_list.get(k);
 				  playerTeam = player.substring(player.lastIndexOf(",")-3, player.lastIndexOf(","));
 				  playerPosition = player.substring(player.lastIndexOf(",")-7, player.lastIndexOf(",")-6);
 				  playerName = player.substring(player.indexOf(",")+1, player.lastIndexOf(",") - 8);
 				  
+				  
 				  if(playerPosition.equals("G") || playerPosition.equals("D")) {
 					  
-					  //System.out.println(playerTeam + " " +playerName);
-					  
-					  if(playerTeam.equals(homeTeam) && awayScore == 1 || awayScore == 2) {
-						  totalDeducted = context.executeStrategy(num1,0);
-						  //System.out.println("WENT TO FIRST IF: " +totalDeducted);
-					  }
-					  else if(playerTeam.equals(homeTeam) && awayScore > 2) 
-						  totalDeducted = context.executeStrategy(num1,num2);
-						  
-					  
-					  else if(playerTeam.equals(awayTeam) && homeScore == 1 || homeScore == 2) {
-						  totalDeducted = context.executeStrategy(num1,0);
-						  
-					  }
-					  else if(playerTeam.equals(awayTeam) && homeScore > 2) 
-						  totalDeducted = context.executeStrategy(num1,num2);
-					  else
-						  totalDeducted = context.executeStrategy(0, 0);
-					  
+					//System.out.println(playerTeam +" - "+playerPosition+" - "+playerName);
 					 
-				  }  System.out.println(totalDeducted);
+					 if(playerTeam.equals(homeTeam) && awayScore == 2) {
+						totalDeducted = context.executeStrategy(num1,0); 
+						System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Deducted: "+totalDeducted);
+					 }
+					 else if(playerTeam.equals(awayTeam) && homeScore == 2) {
+							totalDeducted = context.executeStrategy(num1,0); 
+							System.out.println("Players Playing Away: " +playerName+" Team: "+playerTeam+" Deducted: "+totalDeducted);
+						 }
+					 else if(playerTeam.equals(homeTeam) && awayScore > 2) {
+							totalDeducted = context.executeStrategy(num1,num2); 
+							System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Deducted: "+totalDeducted);
+						 }
+					 else if(playerTeam.equals(awayTeam) && homeScore > 2) {
+							totalDeducted = context.executeStrategy(num1,num2); 
+							System.out.println("Players Playing Away: " +playerName+" Team: "+playerTeam+" Deducted: "+totalDeducted);
+						 }
+					 else 
+						 totalDeducted = context.executeStrategy(num1,num2); 
+				  }
 			  }
 		  }
 	  }
-	  //System.out.println("Total points" + totalDeducted);
+	  
    }
 }
