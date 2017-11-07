@@ -7,19 +7,6 @@ public class StrategyPattern {
    public static void main(String[] args) {
 	  
 	  Context context = new Context(new PlayerConcedes());		
-      //if goalie/def concedes 1 or 2 goals num1 = -2
-	  //if goalie/def concedes more than 2 goals num2 = -4
-	  
-	  //get players/fixtures/scores DONE
-	  
-	  //get home team from fixtures DONE
-	  //get away team from fixtures DONE
-	  
-	  //get home team score from results DONE
-	  //get away team score from results DONE
-	  
-	  //get player position from players DONE
-	  //get player team from players DONE
 	  
 	  DatabaseService db_players = new DatabaseService("data/Players.txt");
 	  List<String> player_list = new ArrayList<String>();
@@ -41,7 +28,7 @@ public class StrategyPattern {
 	  String playerPosition;
 	  String playerTeam;
 	  String playerName;
-	  
+	  int playerPoints;
 	  int num1 = -1;
 	  int num2 = -2;
 	  int totalDeducted = 0;
@@ -50,10 +37,7 @@ public class StrategyPattern {
 		  String fixture = fixture_list.get(i);
 		  homeTeam = fixture.substring(fixture.indexOf(",")+1, fixture.indexOf(",")+4);
 		  awayTeam = fixture.substring(fixture.indexOf(",")+5,fixture.indexOf(",")+8);
-		  //System.out.println(homeTeam +" v "+awayTeam);
-		  
 		  for(int j = i; j <= i ; j++) {
-			  
 			  String result = result_list.get(j);
 			  homeScore = Integer.parseInt(result.substring(result.indexOf(",")+1, result.indexOf(",")+2));
 			  awayScore = Integer.parseInt(result.substring(result.indexOf(",")+3, result.indexOf(",")+4));
@@ -66,15 +50,14 @@ public class StrategyPattern {
 				  playerTeam = player.substring(player.lastIndexOf(",")-3, player.lastIndexOf(","));
 				  playerPosition = player.substring(player.lastIndexOf(",")-7, player.lastIndexOf(",")-6);
 				  playerName = player.substring(player.indexOf(",")+1, player.lastIndexOf(",") - 8);
-				  
+				  playerPoints = Integer.parseInt(player.substring(player.lastIndexOf(",")+1));
 				  
 				  if(playerPosition.equals("G") || playerPosition.equals("D")) {
-					  
-					//System.out.println(playerTeam +" - "+playerPosition+" - "+playerName);
 					 
 					 if(playerTeam.equals(homeTeam) && awayScore == 2) {
 						totalDeducted = context.executeStrategy(num1,0); 
 						System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Deducted: "+totalDeducted);
+						
 					 }
 					 else if(playerTeam.equals(awayTeam) && homeScore == 2) {
 							totalDeducted = context.executeStrategy(num1,0); 
