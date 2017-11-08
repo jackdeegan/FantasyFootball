@@ -9,11 +9,8 @@ public class LeaguePublic extends TeamComponent{//add teams to league and call s
 	
 	String leagueName;
 
-	
     public LeaguePublic(String newLeagueName){
-
     	leagueName = newLeagueName;
-
     }
         
     public String getleagueName() { return leagueName; }
@@ -30,9 +27,8 @@ public class LeaguePublic extends TeamComponent{//add teams to league and call s
         return (TeamComponent)teamComponents.get(componentIndex);
         }
 
-    public void displayTeamInfo(){
-        System.out.println(getLeagueName() + " " +
-                getLeagueDescription() + "\n");
+    public String displayLeagueTeams(){
+        String info = "";
 
        // Cycles through and prints any teams added
        // to the leagues ArrayList teamComponents
@@ -41,8 +37,9 @@ public class LeaguePublic extends TeamComponent{//add teams to league and call s
 
         while(teamIterator.hasNext()) {
             TeamComponent teamInfo = (TeamComponent) teamIterator.next();
-            teamInfo.displayTeamInfo();
+            info = teamInfo.displayTeamInfo();
         }
+		return info;
     }
 }
 

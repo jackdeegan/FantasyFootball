@@ -57,7 +57,7 @@ public class ViewLeague extends Fixtures{
 				team = accessTeam.getRowData(teamCount);
 			    players = GeneratePlayersForTeams(team);
 			    Team newTeam = new Team(team[0],players);	 //name,points,players	    
-				teamList.add(newTeam);
+				league.add(newTeam);
 			}
 		    				
 	}
@@ -135,7 +135,7 @@ public class ViewLeague extends Fixtures{
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(38, 118, 558, 388);
 		frame.getContentPane().add(textArea);
-		textArea.append(teamList.displayLeagueTeams());
+		textArea.append(league.displayLeagueTeams());
 				
 	}
 

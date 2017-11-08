@@ -6,17 +6,17 @@ import Model.Player;
 import DAL.AccessTeams;
 
 
-public class Fixtures {
+public class Fixtures extends TeamComponent{
 	
-	public static TeamComponent teamList;
-	LeaguePublic league = new LeaguePublic("League");
+	
+	protected LeaguePublic league = new LeaguePublic("League");
 	//test
 	public Fixtures() {
-		createNewStandings(teamList);
+		createNewStandings(league);
 	}
 
 	public TeamComponent getTeamList(){
-		return teamList;
+		return league;
 	}
 	
 	//runs current leaderboard against fixtures played	
@@ -29,18 +29,15 @@ public class Fixtures {
 		for(int i = 0; i<numberOfTeams; i++) {
 			teamLine = accessTeam.getRowData(i);
 			for(int j = 1; j<teamLine.length - 1; j++) {				
-				updatePoints(Integer.parseInt(teamLine[j]),teamList);//goes and looks up player in played fixtures 
+				updatePoints(Integer.parseInt(teamLine[j]),numberOfTeams,league);//goes and looks up player in played fixtures 
 			}		
 		}
 	}	
 	
-	public void updatePoints(int playerID,TeamComponent teamList) {
+	public void updatePoints(int playerID,int numTeams,LeaguePublic league) {
 		
-        Iterator teamIterator = teamList.iterator();
-
-        while(teamIterator.hasNext()) {
-            TeamComponent teamInfo = (TeamComponent) teamIterator.next();
-            info = teamInfo.displayTeamInfo();
+        for(int i = 0; i<numTeams; i++) {
+        	league.getComponent(i);
         }
 	}
 
