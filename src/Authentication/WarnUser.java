@@ -1,19 +1,16 @@
-package CommandDP;
+package Authentication;
 
 public class WarnUser implements Command{
-	
-	
+
 	BanDevice ban;
 	
 	public WarnUser(BanDevice newBan){
 		ban = newBan;
 	}
-
+	
 	@Override
 	public void execute() {
-		
 		ban.WarnUser();
-		
 	}
 
 	@Override
@@ -21,5 +18,4 @@ public class WarnUser implements Command{
 		ban.UnBanUser();
 		
 	}
-
 }

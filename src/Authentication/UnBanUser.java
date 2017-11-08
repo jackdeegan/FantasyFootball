@@ -1,7 +1,6 @@
-package CommandDP;
+package Authentication;
 
 public class UnBanUser implements Command{
-	
 	
 	BanDevice ban;
 	
@@ -12,15 +11,12 @@ public class UnBanUser implements Command{
 	@Override
 	public void execute() {
 		
-		ban.UnBanUser();
-		
+		ban.UnBanUser();	
 	}
 
 	@Override
 	public void undo() {
 		
 		ban.TempBan();
-		
 	}
-
 }

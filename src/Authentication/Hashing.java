@@ -15,7 +15,6 @@ public class Hashing {
         md.update(pwd.getBytes());
         byte[] out = md.digest();
         return bytesToHex(out);
-
 	}
 
 	public static String bytesToHex(byte[] bytes){
@@ -28,5 +27,4 @@ public class Hashing {
         }
         return new String(hexChar);
     }
-	
 }

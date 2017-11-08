@@ -1,4 +1,4 @@
-package CommandDP;
+package Authentication;
 
 public class PermanentBan implements Command {
 

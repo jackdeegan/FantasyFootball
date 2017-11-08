@@ -16,10 +16,13 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class LoggedInAdmin extends LogInWindow{
 
@@ -29,6 +32,7 @@ public class LoggedInAdmin extends LogInWindow{
 	public JTextArea userlist = new JTextArea();
 	private FileReader aFile;
 	private Scanner in;
+	private PrintWriter pw;
 
 	/**
 	 * Launch the application.
@@ -121,23 +125,39 @@ public class LoggedInAdmin extends LogInWindow{
 		btnViewbanUsers.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnViewbanUsers.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+					
 				try {
 					aFile = new FileReader("data/Users.txt");
 					String[] users;
 					in = new Scanner(aFile);
-					userList.setText("Users:\n");
 					while (in.hasNext()) {
 						users = in.nextLine().split(",");
-						userList.append(users[0] + "\n");
-
+						userList.append(users[0] + "," + users[1] + "," + users[2] + "\n");
 					}
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-			
-			}
+				JButton btnSave = new JButton("Save");
+				btnSave.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						String details = userList.getText();
+						try {
+							
+							pw = new PrintWriter(new FileWriter("data/Users.txt"), true);
+							pw.println(details);
+							pw.close();
+						}
+						
+						catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}		
+					}
+				});
+				btnSave.setBounds(109, 375, 89, 23);
+				frmLoggedAdmin.getContentPane().add(btnSave);
+				}
 			}
 		);
 		
@@ -191,9 +211,5 @@ public class LoggedInAdmin extends LogInWindow{
 		});
 		btnClear.setBounds(10, 374, 89, 23);
 		frmLoggedAdmin.getContentPane().add(btnClear);
-		
-		JButton btnSave = new JButton("Save");
-		btnSave.setBounds(109, 375, 89, 23);
-		frmLoggedAdmin.getContentPane().add(btnSave);
 	}
 }

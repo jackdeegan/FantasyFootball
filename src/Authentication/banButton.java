@@ -1,4 +1,4 @@
-package CommandDP;
+package Authentication;
 
 public class banButton {
 	
@@ -16,5 +16,4 @@ public class banButton {
 	public void pressUndo(){
 		theCommand.undo();
 	}
-
 }

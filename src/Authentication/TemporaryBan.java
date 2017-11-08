@@ -1,4 +1,4 @@
-package CommandDP;
+package Authentication;
 
 public class TemporaryBan implements Command {
 	
@@ -17,8 +17,6 @@ public class TemporaryBan implements Command {
 	@Override
 	public void undo() {
 		
-		ban.UnBanUser();
-		
+		ban.UnBanUser();	
 	}
-
 }
