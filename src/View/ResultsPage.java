@@ -94,20 +94,18 @@ public class ResultsPage extends LoggedInAdmin{
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		frmResults.getContentPane().add(scroll);
 		
-		
-			
 			JButton btnShow = new JButton("Show");
 			btnShow.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					try {
-						aFile = new FileReader("data/Fixtures.txt");
-						String[] fixtures;
+						aFile = new FileReader("data/Results.txt");
+						String results;
 						in = new Scanner(aFile);
 						//textArea.setText("Week 1 Fixtures:\n");
 					
 					while (in.hasNext()) {
-						fixtures = in.nextLine().split(",");
-						textArea.append(fixtures[0] + ",\n");
+						results = in.nextLine();
+						textArea.append(results +"\n");
 					}
 					
 				} catch (FileNotFoundException e1) {

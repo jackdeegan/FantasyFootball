@@ -6,16 +6,16 @@ public class BonusPoint implements Visitor{
 	
 	public int visit(Goal goalBonus){
 		System.out.println("Bonus points added for Goal ");
-		return goalBonus.getBonusScore() + 3;
+		return goalBonus.getBonusScore();
 	}
 	
 	public int visit(Assist assistBonus){
 		System.out.println("Bonus points added for Assist ");
-		return assistBonus.getBonusScore() + 1;
+		return assistBonus.getBonusScore();
 	}
 	
 	public int visit(CleanSheet clBonus){
 		System.out.println("Bonus points added for Clean Sheet ");
-		return clBonus.getBonusScore() + 2;
+		return clBonus.getBonusScore();
 	}
 }

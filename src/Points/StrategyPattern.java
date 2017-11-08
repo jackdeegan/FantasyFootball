@@ -4,7 +4,7 @@ import DAL.DatabaseService;
 import java.util.*;
 
 public class StrategyPattern {  
-	  public StrategyPattern() {}
+	public StrategyPattern() {}
 	  
 	  public void updatePlayerPoints() { 
 	  
@@ -35,7 +35,11 @@ public class StrategyPattern {
 	  int num1 = -1;
 	  int num2 = -2;
 	  int totalDeducted = 0;
-	 
+	  
+	  BonusPoint bPoint = new BonusPoint();
+	  Goal newGoal = new Goal(4);
+	  CleanSheet newCL = new CleanSheet(3);
+	  
 	  for(int i = 0; i < 10; i++) {
 		  String fixture = fixture_list.get(i);
 		  homeTeam = fixture.substring(fixture.indexOf(",")+1, fixture.indexOf(",")+4);
@@ -61,57 +65,88 @@ public class StrategyPattern {
 				  
 				  if(playerPosition.equals("G") || playerPosition.equals("D")) {
 					 
-					 if(playerTeam.equals(homeTeam) && awayScore == 2) {
+					 if(playerTeam.equals(homeTeam) && awayScore == 2) { //home team concedes 2 goals, deduct -1
 						totalDeducted = context.executeStrategy(num1,0); 
 						int totalPoints = playerPoints + totalDeducted + 2;
 						String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
 						db_players.changeData(newRow);
 						System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 					 }
-					 else if(playerTeam.equals(awayTeam) && homeScore == 2) {
+					 else if(playerTeam.equals(awayTeam) && homeScore == 2) { //away team concedes 2 goals, deduct -1
 							totalDeducted = context.executeStrategy(num1,0); 
 							int totalPoints = playerPoints + totalDeducted + 2;
 							String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
 							db_players.changeData(newRow);
 							System.out.println("Players Playing Away: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 						 }
-					 else if(playerTeam.equals(homeTeam) && awayScore > 2) {
+					 
+					 else if(playerTeam.equals(homeTeam) && awayScore > 2) { //home team concedes more than 2 goals, deduct -2
 							totalDeducted = context.executeStrategy(num1,num2); 
 							int totalPoints = playerPoints +totalDeducted + 2;
 							String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
 							db_players.changeData(newRow);
 							System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 						 }
-					 else if(playerTeam.equals(awayTeam) && homeScore > 2) {
+					 
+					 else if(playerTeam.equals(awayTeam) && homeScore > 2) { //away team concedes more than 2 goals, deduct -2
 							totalDeducted = context.executeStrategy(num1,num2); 
 							int totalPoints = playerPoints + totalDeducted + 2;
 							String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
 							db_players.changeData(newRow);
 							System.out.println("Players Playing Away: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 						 }
-					 else if(playerTeam.equals(homeTeam) && awayScore < 2) {
-						 int totalPoints = context.executeStrategy(playerPoints,2); 
+					 
+					 else if(playerTeam.equals(homeTeam) && awayScore < 2) { //home team concedes less than 2 goals, deduct 0;
+						 int totalPoints = context.executeStrategy(playerPoints,2);
+						 if(awayScore == 0) 
+						  		totalPoints = context.executeStrategy(totalPoints,newCL.accept(bPoint));
 						 String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
 						 db_players.changeData(newRow);
 						 System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 					 } 
 					 
-					 else if(playerTeam.equals(awayTeam) && homeScore < 2) {
+					 else if(playerTeam.equals(awayTeam) && homeScore < 2) { //away team concedes less than 2 goals, deduct 0;
 						 int totalPoints = context.executeStrategy(playerPoints,2); 
+						 if(awayScore == 0) 
+						  		totalPoints = context.executeStrategy(totalPoints,newCL.accept(bPoint));
 						 String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
 						 db_players.changeData(newRow);
 						 System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 					 } 
 				  }
-				  if(playerPosition.equals("M") || playerPosition.equals("F")) {
+				  
+				  if(playerPosition.equals("M")) {
+					  
 					  if(playerTeam.equals(homeTeam)) {
-							int totalPoints = context.executeStrategy(playerPoints,2); 
-							String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
+						  	int totalPoints = context.executeStrategy(playerPoints,2); 
+						  	String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
 							db_players.changeData(newRow);
 							System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 						 } 
+					  
 					  else if(playerTeam.equals(awayTeam)) {
 							int totalPoints = context.executeStrategy(playerPoints,2); 
+							String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
+							db_players.changeData(newRow);
+							System.out.println("Players Playing Away: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
+						 }
+				  }
+				  
+				  if(playerPosition.equals("F")) {
+					  
+					  if(playerTeam.equals(homeTeam)) {
+						  	int totalPoints = context.executeStrategy(playerPoints,2);
+						  	if(homeScore > 0) 
+						  		totalPoints = context.executeStrategy(totalPoints,newGoal.accept(bPoint)); 
+						  	String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
+							db_players.changeData(newRow);
+							System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
+						 } 
+					  
+					  else if(playerTeam.equals(awayTeam)) {
+							int totalPoints = context.executeStrategy(playerPoints,2); 
+							if(awayScore > 0) 
+								totalPoints = context.executeStrategy(totalPoints,newGoal.accept(bPoint)); 
 							String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
 							db_players.changeData(newRow);
 							System.out.println("Players Playing Away: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
