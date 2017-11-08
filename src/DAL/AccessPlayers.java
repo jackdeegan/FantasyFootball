@@ -40,15 +40,15 @@ public class AccessPlayers  extends DatabaseService  {
     
     private List<String> retrievePositionList(String pos) {
     	
-    	List<String> goalkeeperList = new ArrayList<String>();
+    	List<String> playerList = new ArrayList<String>();
     	String rowElements[];
         for(int i = 0; i < data.size(); i++) {
         	rowElements = data.get(i).split(",");
-    		if (rowElements[3].equals("G")) {
-    			goalkeeperList.add(data.get(i));
+    		if (rowElements[3].equals(pos)) {
+    			playerList.add(data.get(i));
     		}
     	}
-		return goalkeeperList;
+		return playerList;
     }
     
 }

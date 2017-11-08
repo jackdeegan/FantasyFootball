@@ -37,6 +37,7 @@ public class TeamSetUp extends CreateAccount{
 	public static String username = CreateAccount.username;
 
 	public JTextArea textArea = new JTextArea();
+	public JTextArea textArea_1 = new JTextArea();
 	private FileReader aFile;
 	private Scanner in;
 	private JTextField playerEntryField;
@@ -121,11 +122,6 @@ public class TeamSetUp extends CreateAccount{
 		list.setBounds(117, 338, 101, -138);
 		frmTeamSetUp.getContentPane().add(list);
 		
-		JLabel lblPickPlayers = new JLabel("Pick Players");
-		lblPickPlayers.setFont(new Font("Arial Black", Font.PLAIN, 12));
-		lblPickPlayers.setBounds(10, 100, 101, 24);
-		frmTeamSetUp.getContentPane().add(lblPickPlayers);
-		
 		JButton btnConfirmTeam = new JButton("Confirm Team");
 		btnConfirmTeam.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -150,72 +146,75 @@ public class TeamSetUp extends CreateAccount{
 			public void actionPerformed(ActionEvent e) {
 				List<String> goalkeeperList = new ArrayList<String>();
 				goalkeeperList = playersDB.getAllGoalkeepers();
-				textArea.setText("Goalkeepers: \n");
+				textArea_1.setText("Goalkeepers: \n");
 				for (int i = 0; i < goalkeeperList.size(); i++) {
-					textArea.append(goalkeeperList.get(i) + "\n");				//FOR KIERAN TO FIX
+					
+					textArea_1.append(goalkeeperList.get(i) + "\n");				//FOR KIERAN TO FIX
 				}
 			}
 		});
-		btnViewGoalkeepers.setBounds(356, 154, 117, 23);
+		btnViewGoalkeepers.setBounds(10, 106, 117, 23);
 		frmTeamSetUp.getContentPane().add(btnViewGoalkeepers);
 		
 		JButton btnViewDefenders = new JButton("View Defenders");
 		btnViewDefenders.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText("Defenders: \n");
+				textArea_1.setText("Defenders: \n");
 				List<String> defenderList = new ArrayList<String>();
 				defenderList = playersDB.getAllDefenders();
 				for (int i = 0; i < defenderList.size(); i++) {
-					textArea.append(defenderList.get(i) + "\n");				//FOR KIERAN TO FIX
+					textArea_1.append(defenderList.get(i) + "\n");				//FOR KIERAN TO FIX
 				}
 			}
 		});
-		btnViewDefenders.setBounds(356, 189, 117, 23);
+		btnViewDefenders.setBounds(137, 106, 109, 23);
 		frmTeamSetUp.getContentPane().add(btnViewDefenders);
 		
 		JButton btnViewMidfielders = new JButton("View Midfielders");
 		btnViewMidfielders.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText("Midfielders: \n");
+				textArea_1.setText("Midfielders: \n");
 				List<String> midfielderList = new ArrayList<String>();
 				midfielderList = playersDB.getAllMidfielders();
 				for (int i = 0; i < midfielderList.size(); i++) {
-					textArea.append(midfielderList.get(i) + "\n");				//FOR KIERAN TO FIX
+					textArea_1.append(midfielderList.get(i) + "\n");				//FOR KIERAN TO FIX
 				}
 			}
 		});
-		btnViewMidfielders.setBounds(356, 223, 117, 23);
+		btnViewMidfielders.setBounds(256, 106, 109, 23);
 		frmTeamSetUp.getContentPane().add(btnViewMidfielders);
 		
 		JButton btnViewForwards = new JButton("View Forwards");
 		btnViewForwards.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText("Forwards: \n");
+				textArea_1.setText("Forwards: \n");
 				List<String> forwardList = new ArrayList<String>();
 				forwardList = playersDB.getAllForwards();
 				for (int i = 0; i < forwardList.size(); i++) {
-					textArea.append(forwardList.get(i) + "\n");					//FOR KIERAN TO FIX
+					textArea_1.append(forwardList.get(i) + "\n");					//FOR KIERAN TO FIX
 				}
 			}
 		});
-		btnViewForwards.setBounds(356, 257, 117, 23);
+		btnViewForwards.setBounds(375, 106, 109, 23);
 		frmTeamSetUp.getContentPane().add(btnViewForwards);
-		
-		JButton btnViewPlayersPoints = new JButton("Player's Points");
-		btnViewPlayersPoints.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnViewPlayersPoints.setBounds(356, 291, 117, 23);
-		frmTeamSetUp.getContentPane().add(btnViewPlayersPoints);
 		
 		textArea.setBounds(10, 135, 307, 192);
 		frmTeamSetUp.getContentPane().add(textArea);
 		JScrollPane scroll = new JScrollPane(textArea);
-		scroll.setBounds(10, 135, 307, 182);
+		scroll.setBounds(10, 135, 237, 182);
 		scroll.setViewportView(textArea);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		frmTeamSetUp.getContentPane().add(scroll);
+		
+		textArea_1 = new JTextArea();
+		textArea_1.setBounds(267, 140, 216, 177);
+		frmTeamSetUp.getContentPane().add(textArea_1);
+		JScrollPane scroll1 = new JScrollPane(textArea_1);
+		scroll1.setBounds(267, 140, 216, 177);
+		scroll1.setViewportView(textArea_1);
+		scroll1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		frmTeamSetUp.getContentPane().add(scroll1);
+		
 		
 		playerEntryField = new JTextField();
 		playerEntryField.setBounds(117, 338, 101, 20);
@@ -259,5 +258,7 @@ public class TeamSetUp extends CreateAccount{
 		});
 		btnClearSelection.setBounds(326, 338, 117, 23);
 		frmTeamSetUp.getContentPane().add(btnClearSelection);
+		
+		
 	}
 }

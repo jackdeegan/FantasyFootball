@@ -40,6 +40,9 @@ public class StrategyPattern {
 	  Goal newGoal = new Goal(4);
 	  CleanSheet newCL = new CleanSheet(3);
 	  
+	  //if fixture_id = 11,21,31 etc...start new week
+	  //for (int i = "start of fixture week (e.g 11, 21 etc); i < "start of fixture week" + 10; i++)
+	  
 	  for(int i = 0; i < 10; i++) {
 		  String fixture = fixture_list.get(i);
 		  homeTeam = fixture.substring(fixture.indexOf(",")+1, fixture.indexOf(",")+4);
