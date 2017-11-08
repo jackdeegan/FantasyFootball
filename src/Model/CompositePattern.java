@@ -18,6 +18,7 @@ public class CompositePattern extends LogInWindow implements I_Composite{
 	
 		//System.out.println(username);
 		//List<String> teamWithNames = new ArrayList<String>();
+		
 		List<String> team_list = new ArrayList<String>();
 		DatabaseService db_players = new DatabaseService("data/Players.txt");
 		DatabaseService db_teams = new DatabaseService("data/Teams.txt");

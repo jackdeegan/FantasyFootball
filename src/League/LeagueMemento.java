@@ -1,18 +1,13 @@
 package League;
 
-import java.util.ArrayList;
-
 public class LeagueMemento {
 	
-	TeamComponent league;
+	TeamComponent leagueState = new LeaguePublic("Public League");
 	
-	 public LeagueMemento(TeamComponent leagueTemp){
-		 league = leagueTemp;
+	 public LeagueMemento(TeamComponent leagueSave){
+		 leagueState = leagueSave;
 		 }
 	 public TeamComponent getSavedLeague(){
-		 return league;
+		 return leagueState;
 		 }
-	 
-
-
 }

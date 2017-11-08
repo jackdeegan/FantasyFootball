@@ -5,7 +5,6 @@ public class LeagueOriginator {
 	TeamComponent leagueTemp;
 	
 	public void set(TeamComponent newLeague) {
-		
 		System.out.println("From Originator: Current league standings\n" + newLeague + "\n");
 		
 		leagueTemp = newLeague;

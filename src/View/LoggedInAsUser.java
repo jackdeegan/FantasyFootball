@@ -95,27 +95,12 @@ public class LoggedInAsUser extends LogInWindow{
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		frmLoggedUser.getContentPane().add(scroll);
 		
-		
-		
-		
 		JButton btnViewStandings = new JButton("View Standings");
 		btnViewStandings.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnViewStandings.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					aFile = new FileReader("data/Scores.txt");
-					String[] scores;
-					in = new Scanner(aFile);
-					userList.setText("League Table:\n");
-					while (in.hasNext()) {
-						scores = in.nextLine().split(",");
-						userList.append(scores[0] + " - " + scores[1] + "\n");
-
-					}
-				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				ViewLeague leagueWindow = new ViewLeague();
+				leagueWindow.StartLeagueTable();
 			}
 		});
 		btnViewStandings.setBounds(10, 90, 112, 24);
@@ -125,26 +110,14 @@ public class LoggedInAsUser extends LogInWindow{
 		btnEditTeam.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnEditTeam.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				CompositePattern myTeam = new CompositePattern();
 				//String team = myTeam.printTeam("");
 				userList.setText(myTeam.printTeam(""));
-				//myTeam.printTeam();
-					
-				
+				//myTeam.printTeam();	
 			}
 		});
 		btnEditTeam.setBounds(132, 90, 101, 24);
 		frmLoggedUser.getContentPane().add(btnEditTeam);
-		
-		JButton btnEditTeamName = new JButton("Edit Team Name");
-		btnEditTeamName.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		btnEditTeamName.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnEditTeamName.setBounds(245, 90, 118, 24);
-		frmLoggedUser.getContentPane().add(btnEditTeamName);
 		
 		JButton btnPoints = new JButton("View All Points");
 		btnPoints.setFont(new Font("Tahoma", Font.PLAIN, 10));
@@ -170,15 +143,12 @@ public class LoggedInAsUser extends LogInWindow{
 		btnPoints.setBounds(373, 90, 110, 24);
 		frmLoggedUser.getContentPane().add(btnPoints);
 		
-		JLabel lblYourSquadpoints = new JLabel("Your Squad/Points");
+		//When Brian gets total points from league table
+		
+		JLabel lblYourSquadpoints = new JLabel("Your Points:");
 		lblYourSquadpoints.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblYourSquadpoints.setBounds(10, 121, 117, 24);
 		frmLoggedUser.getContentPane().add(lblYourSquadpoints);
-		
-		JLabel lblWeekNo = new JLabel("Week No: ");
-		lblWeekNo.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblWeekNo.setBounds(366, 55, 117, 24);
-		frmLoggedUser.getContentPane().add(lblWeekNo);
 		
 		JButton btnClear = new JButton("Clear");
 		btnClear.addActionListener(new ActionListener() {

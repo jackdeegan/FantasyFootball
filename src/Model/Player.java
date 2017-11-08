@@ -35,7 +35,6 @@ public class Player {
 	    //attackers = new ArrayList<Player>();
 	}
 	
-	
 	//team
 	public void add(Player p) {
 		team_members.add(p);
@@ -52,8 +51,6 @@ public class Player {
 	public String toString(){
 	      return ("Name: " + player_fname +" "+player_lname + "\tPosition: "+ player_position + "\tInjured: " + player_injured + "\tTeam: " + player_team + "\tPoints: " + player_points);
 	   }   
-	
-	
 	
 	public int getPlayer_id() {
 		return player_id;

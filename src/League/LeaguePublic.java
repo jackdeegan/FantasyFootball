@@ -1,39 +1,50 @@
 package League;
-
+import Model.Player;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class LeaguePublic extends TeamComponent{
+public class LeaguePublic extends TeamComponent{//add teams to league and call submethod on each team to print stats when iterating through league
 	
-	ArrayList league = new ArrayList();
+	ArrayList teamComponents = new ArrayList();
 	
-	public String name;
-	public String description;
-	
-	public LeaguePublic(String newName,String newDescription) {
-		name = newName;
-		description = newDescription;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void add(LeaguePublic newLeague) {
-		league.add(newLeague);
-	}
-	public void remove(LeaguePublic leagueRemove) {
-		league.remove(leagueRemove);
-	}
-	public LeaguePublic getLeague(int index) {
-		return (LeaguePublic)league.get(index);
-	}
-	public void displayLeagueInfo() {
-		System.out.println(getName() + " " + getDescription());
-		
-		Iterator teamIterator = league.iterator();
-	}
+	String leagueName;
 
+	
+    public LeaguePublic(String newLeagueName){
+
+    	leagueName = newLeagueName;
+
+    }
+        
+    public String getleagueName() { return leagueName; }
+
+    public void add(TeamComponent newTeamComponent) {
+        teamComponents.add(newTeamComponent);
+    }
+
+    public void remove(TeamComponent newTeamComponent) {
+	    teamComponents.remove(newTeamComponent);
+     } 
+
+    public TeamComponent getComponent(int componentIndex) { 	
+        return (TeamComponent)teamComponents.get(componentIndex);
+        }
+
+    public void displayTeamInfo(){
+        System.out.println(getLeagueName() + " " +
+                getLeagueDescription() + "\n");
+
+       // Cycles through and prints any teams added
+       // to the leagues ArrayList teamComponents
+    
+        Iterator teamIterator = teamComponents.iterator();
+
+        while(teamIterator.hasNext()) {
+            TeamComponent teamInfo = (TeamComponent) teamIterator.next();
+            teamInfo.displayTeamInfo();
+        }
+    }
 }
+
+    
+
