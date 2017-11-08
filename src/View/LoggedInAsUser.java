@@ -130,7 +130,7 @@ public class LoggedInAsUser extends LogInWindow{
 					userList.setText("Players/Points:\n");
 					while (in.hasNext()) {
 						users = in.nextLine().split(",");
-						userList.append(users[0] + ", " + users[1] + ", " + users[2] + ", "+ users[3] + ", " + users[4] + "\n");
+						userList.append(users[0] + ", " + users[1] + ", " + users[2] + ", "+ users[3] + ", " + users[4] + users[5] +users[6] + "\n");
 
 					}
 				} catch (FileNotFoundException e1) {
