@@ -89,10 +89,10 @@ public class LoggedInAdmin extends LogInWindow{
 		frmLoggedAdmin.getContentPane().add(lblWelcomeBack);
 		
 		JTextArea userList = new JTextArea();
-		userList.setBounds(10, 135, 364, 229);
+		userList.setBounds(10, 135, 493, 229);
 		frmLoggedAdmin.getContentPane().add(userList);
 		JScrollPane scroll = new JScrollPane(userList);
-		scroll.setBounds(10, 135, 314, 229);
+		scroll.setBounds(10, 135, 493, 219);
 		scroll.setViewportView(userList);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		frmLoggedAdmin.getContentPane().add(scroll);
@@ -115,6 +115,7 @@ public class LoggedInAdmin extends LogInWindow{
 			public void actionPerformed(ActionEvent e) {
 					
 				try {
+					userList.setText("");
 					aFile = new FileReader("data/Users.txt");
 					String[] users;
 					in = new Scanner(aFile);

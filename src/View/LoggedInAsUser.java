@@ -87,10 +87,10 @@ public class LoggedInAsUser extends LogInWindow{
 		frmLoggedUser.getContentPane().add(userLabel);
 		
 		JTextArea userList = new JTextArea();
-		userList.setBounds(10, 135, 364, 229);
+		userList.setBounds(10, 156, 487, 233);
 		frmLoggedUser.getContentPane().add(userList);
 		JScrollPane scroll = new JScrollPane(userList);
-		scroll.setBounds(10, 156, 353, 233);
+		scroll.setBounds(10, 156, 487, 223);
 		scroll.setViewportView(userList);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		frmLoggedUser.getContentPane().add(scroll);

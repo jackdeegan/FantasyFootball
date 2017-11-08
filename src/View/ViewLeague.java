@@ -46,7 +46,7 @@ public class ViewLeague {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 650, 650);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblView = new JLabel("View League");
