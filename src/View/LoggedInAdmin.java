@@ -171,8 +171,7 @@ public class LoggedInAdmin extends LogInWindow{
 					e1.printStackTrace();
 				}
 				
-					}
-			
+			}
 		});
 		btnViewFixtures.setBounds(259, 91, 115, 23);
 		frmLoggedAdmin.getContentPane().add(btnViewFixtures);
@@ -184,7 +183,6 @@ public class LoggedInAdmin extends LogInWindow{
 				ResultsPage results = new ResultsPage();
 				results.startResults();
 			}
-			
 		});
 		btnAddResult.setBounds(388, 91, 115, 23);
 		frmLoggedAdmin.getContentPane().add(btnAddResult);
