@@ -8,8 +8,10 @@ import java.awt.Font;
 import javax.swing.JTextField;
 
 import Model.User;
+import Model.Player;
 import Model.Team;
 import DAL.AccessPlayers;
+import DAL.AccessTeams;
 import DAL.DatabaseService;
 
 import java.awt.Color;
@@ -41,7 +43,29 @@ public class TeamSetUp extends CreateAccount{
 	private String teamSelection = username;
 	private String regex = "[0-9]+";
 
-
+/*	public void GenerateTeam(){//place in team setup
+		ArrayList <Player> players = new ArrayList<Player>();
+		int addedTeam;
+		String [] team;
+		AccessTeams accessTeam = new AccessTeams();
+		addedTeam = accessTeam.getData().size();	
+	    team = accessTeam.getRowData(addedTeam);
+	    players = GeneratePlayers(team);
+	    Team newTeam = new Team(team[0],players);	 //name,points,players	    
+		teamList.add(newTeam);		
+	}
+		public ArrayList <Player> GeneratePlayers(String [] line) {
+		ArrayList <Player> players = new ArrayList<Player>();
+		Player selectedPlayer;
+		String [] player;
+		AccessPlayers accessPlayer = new AccessPlayers();
+		for(int i = 1; i<line.length - 1; i++) {
+			player = accessPlayer.getRowData(i);
+			selectedPlayer = new Player(Integer.parseInt(player[0]),player[1],player[2],player[3],Integer.parseInt(player[4]),player[5],Integer.parseInt(player[6]));
+			players.add(selectedPlayer);
+		}		
+		return players;
+	}*/
 
 	/**
 	 * Launch the application.

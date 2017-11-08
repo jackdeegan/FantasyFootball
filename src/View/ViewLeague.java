@@ -4,24 +4,24 @@ import java.awt.EventQueue;
 import League.Fixtures;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
+import DAL.AccessTeams;
+import DAL.AccessPlayers;
 import League.LeagueCaretaker;
 import League.LeagueOriginator;
-import League.LeaguePublic;
-import League.TeamComponent;
-
+import League.Team;
+import Model.Player;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
-import javax.swing.JEditorPane;
 import javax.swing.JTextArea;
 
-public class ViewLeague {
+
+public class ViewLeague extends Fixtures{
 
 	int currentWeek = 0;
 	int savedLeagues = 0;
-	LeaguePublic league = new LeaguePublic("LeaderBoard");	
     LeagueCaretaker caretaker = new LeagueCaretaker();//allows adding and retrieval of league states
 	LeagueOriginator originator = new LeagueOriginator();//sets values for league, create new mementos, stores league in current memento	
 	private JFrame frame;
@@ -39,8 +39,39 @@ public class ViewLeague {
 		});
 	}
 
-	public ViewLeague() {
+	public ViewLeague()
+	{
+		GenerateTeams();
 		initialize();
+		
+	}
+
+	private void GenerateTeams() {
+
+			ArrayList <Player> players = new ArrayList<Player>();
+			int teamCount;
+			String [] team;
+			AccessTeams accessTeam = new AccessTeams();
+			teamCount = accessTeam.getData().size();
+			for(int i = 0; i < teamCount; i++) {
+				team = accessTeam.getRowData(teamCount);
+			    players = GeneratePlayersForTeams(team);
+			    Team newTeam = new Team(team[0],players);	 //name,points,players	    
+				teamList.add(newTeam);
+			}
+		    				
+	}
+	public ArrayList <Player> GeneratePlayersForTeams(String [] line) {
+		ArrayList <Player> players = new ArrayList<Player>();
+		Player selectedPlayer;
+		String [] player;
+		AccessPlayers accessPlayer = new AccessPlayers();
+		for(int i = 1; i<line.length - 1; i++) {
+			player = accessPlayer.getRowData(i);
+			selectedPlayer = new Player(Integer.parseInt(player[0]),player[1],player[2],player[3],Integer.parseInt(player[4]),player[5],Integer.parseInt(player[6]));
+			players.add(selectedPlayer);
+		}		
+		return players;
 	}
 
 	private void initialize() {
@@ -84,8 +115,7 @@ public class ViewLeague {
 		});
 		btnGenerateFixtureResults.setBounds(382, 547, 167, 25);
 		frame.getContentPane().add(btnGenerateFixtureResults);
-		
-		
+			
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(60, 547, 116, 25);
 		frame.getContentPane().add(btnBack);
@@ -105,7 +135,8 @@ public class ViewLeague {
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(38, 118, 558, 388);
 		frame.getContentPane().add(textArea);
-		
-		//textArea.append(arg0);
+		textArea.append(teamList.displayLeagueTeams());
+				
 	}
+
 }

@@ -53,9 +53,13 @@ public abstract class TeamComponent{//safety vs transparency in composite which 
 		throw new UnsupportedOperationException();
 
     }
+    public String displayLeagueTeams(){
+		throw new UnsupportedOperationException();
+
+    }
     //When called by class object that extends this class 
     //it will print info specific to the team
-    public void displayTeamInfo() {
+    public String displayTeamInfo() {
 		throw new UnsupportedOperationException();
 
     }
