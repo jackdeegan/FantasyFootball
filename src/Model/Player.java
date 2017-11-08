@@ -53,73 +53,6 @@ public class Player {
 	      return ("Name: " + player_fname +" "+player_lname + "\tPosition: "+ player_position + "\tInjured: " + player_injured + "\tTeam: " + player_team + "\tPoints: " + player_points);
 	   }   
 	
-	/*//goalies
-	public void addGoalie(Player p) {
-	      goalies.add(p);
-	   }
-
-	   public void removeGoalie(Player p) {
-	      goalies.remove(p);
-	   }
-
-	   public List<Player> getGoalies(){
-	     return goalies;
-	   }
-
-	public String goaliesToString(){
-	      return ("Goalies :[ Name : " + player_name + ", Availability : " + player_availability + ", Points :" + player_points+" ]");
-	   }   
-	
-	//defenders
-	public void addDef(Player p) {
-	      defenders.add(p);
-	   }
-
-	   public void removeDef(Player p) {
-		   defenders.remove(p);
-	   }
-
-	   public List<Player> getDefenders(){
-	     return defenders;
-	   }
-	   
-	public String defendersToString(){
-	      return ("Defenders :[ Name : " + player_name + ", Availability : " + player_availability + ", Points :" + player_points+" ]");
-	   }   
-	
-	//midfielders
-	public void addMid(Player p) {
-	      midfielders.add(p);
-	   }
-
-	   public void removeMid(Player p) {
-		   midfielders.remove(p);
-	   }
-
-	   public List<Player> getMid(){
-	     return midfielders;
-	   }
-	   
-	public String MidToString(){
-	      return ("Midfielders :[ Name : " + player_name + ", Availability : " + player_availability + ", Points :" + player_points+" ]");
-	   }  
-	
-	//attackers
-		public void addAtt(Player p) {
-			attackers.add(p);
-		   }
-
-		   public void removeAtt(Player p) {
-			   attackers.remove(p);
-		   }
-
-		   public List<Player> getAtt(){
-		     return attackers;
-		   }
-		   
-		public String AttToString(){
-		      return ("attackers :[ Name : " + player_name + ", Availability : " + player_availability + ", Points :" + player_points+" ]");
-		   } */ 
 	
 	
 	public int getPlayer_id() {
@@ -145,7 +78,6 @@ public class Player {
 	public void setPlayer_fname(String player_fname) {
 		this.player_fname = player_fname;
 	}
-	
 
 	public String getPlayer_lname() {
 		return player_lname;

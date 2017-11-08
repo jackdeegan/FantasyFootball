@@ -1,5 +1,3 @@
 package Authentication;
 
-public class LogOut {
-
-}
+public class LogOut {}

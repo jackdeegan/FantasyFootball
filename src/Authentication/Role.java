@@ -46,10 +46,6 @@ public class Role {
 		public boolean getBannedUser(){
 			return this.isBanned;
 		}
-
-		
-
-		
 	}
 
 

@@ -195,7 +195,5 @@ public class LoggedInAdmin extends LogInWindow{
 		JButton btnSave = new JButton("Save");
 		btnSave.setBounds(109, 375, 89, 23);
 		frmLoggedAdmin.getContentPane().add(btnSave);
-		
-		
 	}
 }

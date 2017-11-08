@@ -1,5 +1,6 @@
 package View;
 import java.awt.Color;
+
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -10,8 +11,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class MainGUI {
 
+import Interceptor.LoggingInterceptor;
+import Interceptor.ServerReplyDispatcher;
+import Interceptor.ServerReplyInterceptor;
+
+public class MainGUI {
 	JFrame frame;
 
 	/**
@@ -28,7 +33,15 @@ public class MainGUI {
 				}
 			}
 		});
+		
+		ServerReplyInterceptor inter = new LoggingInterceptor();
+		
+		ServerReplyDispatcher dis = new ServerReplyDispatcher();
+		dis.register(inter);
+		//registerServerReplyDispatcher(dis);
+		
 	}
+	
 
 	/**
 	 * Create the application.
