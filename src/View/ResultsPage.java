@@ -21,6 +21,7 @@ import javax.swing.SwingConstants;
 
 import Model.User;
 import java.awt.Color;
+import Points.StrategyPattern;
 
 public class ResultsPage extends LoggedInAdmin{
 
@@ -125,7 +126,7 @@ public class ResultsPage extends LoggedInAdmin{
 					String details = textArea.getText();
 					try {
 						
-						pw = new PrintWriter(new FileWriter("data/Results1.txt"), true);
+						pw = new PrintWriter(new FileWriter("data/Results.txt"), true);
 						pw.println(details);
 						pw.close();
 					}
@@ -134,6 +135,8 @@ public class ResultsPage extends LoggedInAdmin{
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
+					StrategyPattern updatePoints = new StrategyPattern();
+					updatePoints.updatePlayerPoints();
 				}
 			});
 			btnSaveResults.setBounds(10, 273, 105, 23);

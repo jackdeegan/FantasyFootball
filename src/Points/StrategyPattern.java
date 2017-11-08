@@ -1,11 +1,12 @@
 package Points;
 
 import DAL.DatabaseService;
-import DAL.AccessPlayers;
 import java.util.*;
 
-public class StrategyPattern {
-   public static void main(String[] args) {
+public class StrategyPattern {  
+	  public StrategyPattern() {}
+	  
+	  public void updatePlayerPoints() { 
 	  
 	  Context context = new Context(new PlayerConcedes());		
 	  
@@ -116,8 +117,7 @@ public class StrategyPattern {
 							System.out.println("Players Playing Away: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 						 }
 				  }
-			  }
-			  
+			  } 
 		  }
 	  } 
    }
