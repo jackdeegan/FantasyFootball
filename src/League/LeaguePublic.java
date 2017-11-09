@@ -1,5 +1,5 @@
 package League;
-import Model.Player;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -7,7 +7,7 @@ public class LeaguePublic extends TeamComponent{//add teams to league and call s
 	
 	ArrayList teamComponents = new ArrayList();
 	
-	String leagueName;
+	public String leagueName;
 
     public LeaguePublic(String newLeagueName){
     	leagueName = newLeagueName;
@@ -23,16 +23,12 @@ public class LeaguePublic extends TeamComponent{//add teams to league and call s
 	    teamComponents.remove(newTeamComponent);
      } 
 
-    public TeamComponent getComponent(int componentIndex) { 	
-        return (TeamComponent)teamComponents.get(componentIndex);
+    public Team getComponent(int componentIndex) { 	
+        return (Team)teamComponents.get(componentIndex);
         }
 
-    public String displayLeagueTeams(){
-        String info = "";
-
-       // Cycles through and prints any teams added
-       // to the leagues ArrayList teamComponents
-    
+    public String displayLeagueTeams(){//iterates calls for individual team info 
+        String info = "";  
         Iterator teamIterator = teamComponents.iterator();
 
         while(teamIterator.hasNext()) {

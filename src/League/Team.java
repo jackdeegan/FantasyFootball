@@ -22,6 +22,7 @@ public class Team extends TeamComponent{
 	public void updatePoints(int latestPoints) {
 		points += latestPoints;
 	}
+
 	  
     public String displayTeamInfo(){
     	String info = "";
