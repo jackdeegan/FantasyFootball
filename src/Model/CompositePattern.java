@@ -1,6 +1,6 @@
 package Model;
 
-import Model.Team;
+import DAL.AccessPlayers;
 import DAL.DatabaseService;
 import View.LogInWindow;
 import Model.User;
@@ -10,18 +10,15 @@ import Model.Player;
 public class CompositePattern extends LogInWindow{
 	protected static User currentUser = LogInWindow.member;
 	public static String username = currentUser.getUsername();
+	private static DatabaseService playersDB = new AccessPlayers();
+	private static DatabaseService teamsDB = new AccessPlayers();
 	
 	public CompositePattern() {}
 	
 	public String printTeam(String team) {
-	
-		//System.out.println(username);
-		//List<String> teamWithNames = new ArrayList<String>();
 		
 		List<String> team_list = new ArrayList<String>();
-		DatabaseService db_players = new DatabaseService("data/Players.txt");
-		DatabaseService db_teams = new DatabaseService("data/Teams.txt");
-		team_list = db_teams.getData();
+		team_list = teamsDB.getData();
 		
 		String[] teamPlayersID = new String[14];
 		String uname;
@@ -38,7 +35,7 @@ public class CompositePattern extends LogInWindow{
 		
 				for(int i = 0; i < 14; i++) {
 					int player = Integer.parseInt(teamPlayersID[i]);
-					col  = db_players.getRowData(player);
+					col  = playersDB.getRowData(player);
 					
 					/*Player goalie = new Player(Integer.parseInt(teamPlayersID[i]),col[1], col[2], col[3], Integer.parseInt(col[4]), col[5], Integer.parseInt(col[6]));
 					Player goalieSub = new Player (Integer.parseInt(teamPlayersID[i]),col[1], col[2], col[3], Integer.parseInt(col[4]), col[5], Integer.parseInt(col[6]));

@@ -1,26 +1,29 @@
 package Points;
 
+import DAL.AccessPlayers;
+import DAL.AccessFixtures;
+import DAL.AccessResults;
 import DAL.DatabaseService;
 import java.util.*;
 
-public class StrategyPattern {  
+public class StrategyPattern { 
+	private static DatabaseService playersDB = new AccessPlayers();
+	private static DatabaseService fixturesDB = new AccessFixtures();
+	private static DatabaseService resultsDB = new AccessResults();
 	public StrategyPattern() {}
 	  
 	  public void updatePlayerPoints() { 
 	  
 	  Context context = new Context(new PlayerConcedes());		
 	  
-	  DatabaseService db_players = new DatabaseService("data/Players.txt");
 	  List<String> player_list = new ArrayList<String>();
-	  player_list = db_players.getData();
+	  player_list = playersDB.getData();
 	  
-	  DatabaseService db_fixtures = new DatabaseService("data/Fixtures.txt");
 	  List<String> fixture_list = new ArrayList<String>();
-	  fixture_list = db_fixtures.getData();
+	  fixture_list = fixturesDB.getData();
 	  
-	  DatabaseService db_result = new DatabaseService("data/Results.txt");
 	  List<String> result_list = new ArrayList<String>();
-	  result_list = db_result.getData();
+	  result_list = resultsDB.getData();
 	  
 	  String homeTeam;
 	  String awayTeam;
@@ -72,14 +75,14 @@ public class StrategyPattern {
 						totalDeducted = context.executeStrategy(num1,0); 
 						int totalPoints = playerPoints + totalDeducted + 2;
 						String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
-						db_players.changeData(newRow);
+						playersDB.changeData(newRow);
 						System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 					 }
 					 else if(playerTeam.equals(awayTeam) && homeScore == 2) { //away team concedes 2 goals, deduct -1
 							totalDeducted = context.executeStrategy(num1,0); 
 							int totalPoints = playerPoints + totalDeducted + 2;
 							String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
-							db_players.changeData(newRow);
+							playersDB.changeData(newRow);
 							System.out.println("Players Playing Away: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 						 }
 					 
@@ -87,7 +90,7 @@ public class StrategyPattern {
 							totalDeducted = context.executeStrategy(num1,num2); 
 							int totalPoints = playerPoints +totalDeducted + 2;
 							String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
-							db_players.changeData(newRow);
+							playersDB.changeData(newRow);
 							System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 						 }
 					 
@@ -95,7 +98,7 @@ public class StrategyPattern {
 							totalDeducted = context.executeStrategy(num1,num2); 
 							int totalPoints = playerPoints + totalDeducted + 2;
 							String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
-							db_players.changeData(newRow);
+							playersDB.changeData(newRow);
 							System.out.println("Players Playing Away: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 						 }
 					 
@@ -104,7 +107,7 @@ public class StrategyPattern {
 						 if(awayScore == 0) 
 						  		totalPoints = context.executeStrategy(totalPoints,newCL.accept(bPoint));
 						 String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
-						 db_players.changeData(newRow);
+						 playersDB.changeData(newRow);
 						 System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 					 } 
 					 
@@ -113,7 +116,7 @@ public class StrategyPattern {
 						 if(awayScore == 0) 
 						  		totalPoints = context.executeStrategy(totalPoints,newCL.accept(bPoint));
 						 String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
-						 db_players.changeData(newRow);
+						 playersDB.changeData(newRow);
 						 System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 					 } 
 				  }
@@ -123,14 +126,14 @@ public class StrategyPattern {
 					  if(playerTeam.equals(homeTeam)) {
 						  	int totalPoints = context.executeStrategy(playerPoints,2); 
 						  	String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
-							db_players.changeData(newRow);
+							playersDB.changeData(newRow);
 							System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 						 } 
 					  
 					  else if(playerTeam.equals(awayTeam)) {
 							int totalPoints = context.executeStrategy(playerPoints,2); 
 							String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
-							db_players.changeData(newRow);
+							playersDB.changeData(newRow);
 							System.out.println("Players Playing Away: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 						 }
 				  }
@@ -142,7 +145,7 @@ public class StrategyPattern {
 						  	if(homeScore > 0) 
 						  		totalPoints = context.executeStrategy(totalPoints,newGoal.accept(bPoint)); 
 						  	String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
-							db_players.changeData(newRow);
+							playersDB.changeData(newRow);
 							System.out.println("Players Playing at Home: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 						 } 
 					  
@@ -151,7 +154,7 @@ public class StrategyPattern {
 							if(awayScore > 0) 
 								totalPoints = context.executeStrategy(totalPoints,newGoal.accept(bPoint)); 
 							String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
-							db_players.changeData(newRow);
+							playersDB.changeData(newRow);
 							System.out.println("Players Playing Away: " +playerName+" Team: "+playerTeam+" Total: "+totalPoints);
 						 }
 				  }
