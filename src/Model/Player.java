@@ -5,8 +5,60 @@ import java.util.List;
 import DAL.AccessPlayers;
 import DAL.DatabaseService;
 
-public class Player {
+public class Player extends PlayerComponent {
 	
+	/*private int playerID;
+	private String playerFName;
+	private String playerLName;
+	private String playerPosition;
+	private int playerInjured;
+	private String playerTeam;
+	private int playerPoints;
+	
+	public Player(int newPlayerID, String newPlayerFName, String newPlayerLName, String newPlayerPosition, int newPlayerInjured, String newPlayerTeam, int newPlayerPoints) {
+		playerID = newPlayerID;
+		playerFName = newPlayerFName;
+		playerLName = newPlayerFName;
+		playerPosition = newPlayerPosition;
+		playerInjured = newPlayerInjured;
+		playerTeam = newPlayerTeam;
+		playerPoints = newPlayerPoints;
+	}
+	
+	public int getPlayerID() {
+		return playerID;
+	}
+
+	public String getPlayerFName() {
+		return playerFName;
+	}
+	
+	public String getPlayerLName() {
+		return playerLName;
+	}
+
+	public String getPlayerPosition() {
+		return playerPosition;
+	}
+
+	public int getPlayerInjured() {
+		return playerInjured;
+	}
+	
+	public String getPlayerTeam() {
+		return playerTeam;
+	}
+
+	public int getPlayerPoints() {
+		return playerPoints;
+	}	
+	
+	public String displayPlayerInfo() {
+		System.out.println(getPlayerID() + "," +getPlayerFName() +","+ getPlayerLName() +","+getPlayerPosition()+","+getPlayerInjured()+","+getPlayerTeam()+","+getPlayerPoints());
+		
+		return (getPlayerID() + "," +getPlayerFName() +","+ getPlayerLName() +","+getPlayerPosition()+","+getPlayerInjured()+","+getPlayerTeam()+","+getPlayerPoints() +"\n");
+	}*/
+
 	private int player_id;
 	private String player_fname;
 	private String player_lname;
@@ -107,5 +159,4 @@ public class Player {
 	public void setPlayer_points(int player_points) {
 		this.player_points = player_points;
 	}
-
 }

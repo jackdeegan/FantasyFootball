@@ -1,13 +1,14 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.InputMismatchException;
 import java.util.List;
 import DAL.AccessTeams;
 import DAL.AccessPlayers;
 import DAL.DatabaseService;
 
-public class Team {
+public class Team extends PlayerComponent {
 	
 	private static DatabaseService teamsDB = new AccessTeams();
 	private static DatabaseService playersDB = new AccessPlayers();
@@ -53,7 +54,7 @@ public class Team {
         }
     }
 	
-	private String username;
+	/*private String username;
 	public String getUsername() {
 		return username;
 	}
@@ -61,12 +62,50 @@ public class Team {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
+	private String[] player_id;
 	public String[] getPlayer_id() {
 		return player_id;
 	}
 	public void setPlayer_id(String[] player_id) {
 		this.player_id = player_id;
+	}*/
+	
+	ArrayList playerComponents = new ArrayList();
+	
+	String teamName; //username
+	String teamDescription; //playerIDS
+	
+	public Team(String newTeamName, String newTeamDescription) {
+		teamName = newTeamName;
+		teamDescription = newTeamDescription;
 	}
-	private String[] player_id;
+	
+	public String getTeamName() {return teamName;}
+	
+	public String getTeamDescription() {return teamDescription;}
+	
+	public void add(PlayerComponent newPlayerComponent) {
+		playerComponents.add(newPlayerComponent);
+	}
+	
+	public void remove(PlayerComponent newPlayerComponent) {
+		playerComponents.add(newPlayerComponent);
+	}
+	
+	public PlayerComponent getPlayerComponent(int componentIndex) {
+		return (PlayerComponent)playerComponents.get(componentIndex);
+	}
+	
+	public String displayPlayerInfo() {		
+		Iterator playerIterator = playerComponents.iterator();
+		
+		while(playerIterator.hasNext()) {
+			PlayerComponent playerInfo = (PlayerComponent) playerIterator.next();
+			playerInfo.displayPlayerInfo();
+		}
+		return (getTeamName() +getTeamDescription());
+	}
+	
 }
 	
