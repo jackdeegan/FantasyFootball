@@ -29,19 +29,19 @@ public class Team {
         String[] team = createdTeam.split(",");
         for (int i = 0; i < team.length; i++) {
         	pos = playersDB.verifyData(Integer.parseInt(team[i]));
-        	if (i == 0 && pos.equals("G"))
+        	if ((i == 0 || i == 11) && pos.equals("G"))
         		g++;
-        	else if (i >= 0 && i < 5 && pos.equals("D"))
+        	else if ((i >= 0 && i < 5 || i == 12)  && pos.equals("D"))
         		d++;
-        	else if (i > 4 && i < 9 && pos.equals("M"))
+        	else if ((i > 4 && i < 9 || i == 13) && pos.equals("M"))
         		m++;
-        	else if (i > 8 && i < 11 && pos.equals("F"))
+        	else if ((i > 8 && i < 11 || i == 14) && pos.equals("F"))
         		f++;
         	else
         		return "Invalid Team, Please Clear Selections and Try Again!";
         }
         
-        if (g == 1 && d == 4 && m == 4 && f == 2)
+        if (g == 2 && d == 5 && m == 5 && f == 3)
         	validTeam = true;
         
         if (validTeam == false) {
