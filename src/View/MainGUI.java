@@ -36,9 +36,9 @@ public class MainGUI {
 		});
 		
 		// here shane
-		ServerReplyInterceptor inter = new LoggingInterceptor();
-		ServerReplyDispatcher dis = new ServerReplyDispatcher();
-		dis.register(inter);
+		//ServerReplyInterceptor inter = new LoggingInterceptor();
+		//ServerReplyDispatcher dis = new ServerReplyDispatcher();
+		//dis.register(inter);
 		//registerServerReplyDispatcher(dis);
 		
 	}

@@ -12,7 +12,73 @@ public class StrategyPattern {
 	private static DatabaseService resultsDB = new AccessResults();
 	public StrategyPattern() {}
 	  
-	  public void updatePlayerPoints() { 
+	  
+	public void gameWeek() {
+		
+		List<String> results = new ArrayList<String>();
+		results = resultsDB.getData();
+		for(int i = 0; i < 380;i++) {
+		 String resultTemp = results.get(i);
+		 String resultNo = resultTemp.substring(0,resultTemp.indexOf(","));
+	     int gameWeek = 2;
+	        int gameWeekInt;
+	        switch (gameWeek) {
+	            case 1:  gameWeekInt = 1;
+	            		 if(resultNo.equals("1"))
+	            			 updatePlayerPoints(0); //gw1
+	                     break;
+	            case 2:  gameWeekInt = 2;
+	            		 if(resultNo.equals("11"))
+	            			 updatePlayerPoints(10); //gw2
+	                     break;
+	            case 3:  gameWeekInt = 3;
+	            		 if(resultNo.equals("21"))
+	            			 updatePlayerPoints(20); //gw3
+	                     break;
+	            case 4:  gameWeekInt = 4;
+	            		 if(resultNo.equals("31"))
+	            			 updatePlayerPoints(30); //gw4
+	            		 break;
+	            case 5:  gameWeekInt = 5;
+	            		 if(resultNo.equals("41"))
+	            			 updatePlayerPoints(40); //gw5
+	            		 break;
+	            case 6:  gameWeekInt = 6;
+       		 			 if(resultNo.equals("51"))
+       		 				 updatePlayerPoints(50); //gw6
+       		 			 break;
+	            case 7:  gameWeekInt = 7;
+	            		 if(resultNo.equals("61"))
+	            			 updatePlayerPoints(60); //gw7
+	                     break;
+	            case 8:  gameWeekInt = 8;
+	            		 if(resultNo.equals("71"))
+	            			 updatePlayerPoints(70); //gw8
+	                     break;
+	            case 9:  gameWeekInt = 9;
+	            		 if(resultNo.equals("81"))
+	            			 updatePlayerPoints(80); //gw9
+	                     break;
+	            case 10: gameWeekInt = 10;
+	            		 if(resultNo.equals("91"))
+	            			 updatePlayerPoints(90); //gw10
+	                     break;
+	            case 11: gameWeekInt = 11;
+	            		 if(resultNo.equals("101"))
+	            			 updatePlayerPoints(100); //gw11
+	                     break;
+	            case 12: gameWeekInt = 12;
+	            		 if(resultNo.equals("111"))
+	            			 updatePlayerPoints(110); //gw12
+	                     break;
+	            default: gameWeekInt = 0;
+	                     break;
+	        }
+		}
+		
+	}
+	
+	public void updatePlayerPoints(int gw) { 
 	  
 	  Context context = new Context(new PlayerConcedes());		
 	  
@@ -42,11 +108,8 @@ public class StrategyPattern {
 	  BonusPoint bPoint = new BonusPoint();
 	  Goal newGoal = new Goal(4);
 	  CleanSheet newCL = new CleanSheet(3);
-	  
-	  //if fixture_id = 11,21,31 etc...start new week
-	  //for (int i = "start of fixture week (e.g 11, 21 etc); i < "start of fixture week" + 10; i++)
-	  
-	  for(int i = 0; i < 10; i++) {
+	   
+	  for(int i = gw; i < gw + 10; i++) {
 		  String fixture = fixture_list.get(i);
 		  homeTeam = fixture.substring(fixture.indexOf(",")+1, fixture.indexOf(",")+4);
 		  awayTeam = fixture.substring(fixture.indexOf(",")+5,fixture.indexOf(",")+8);
@@ -113,7 +176,7 @@ public class StrategyPattern {
 					 
 					 else if(playerTeam.equals(awayTeam) && homeScore < 2) { //away team concedes less than 2 goals, deduct 0;
 						 int totalPoints = context.executeStrategy(playerPoints,2); 
-						 if(awayScore == 0) 
+						 if(homeScore == 0) 
 						  		totalPoints = context.executeStrategy(totalPoints,newCL.accept(bPoint));
 						 String newRow = playerID + "," +playerName+ "," +playerPosition+","+playerInjured+","+playerTeam+","+totalPoints;
 						 playersDB.changeData(newRow);
