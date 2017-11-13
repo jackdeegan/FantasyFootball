@@ -11,6 +11,7 @@ import org.junit.Test;
 import DAL.AccessPlayers;
 import DAL.AccessTeams;
 import DAL.DatabaseService;
+import Model.Player;
 import Model.Team;
 
 public class UnitTests {
@@ -19,17 +20,35 @@ public class UnitTests {
 	private DatabaseService teamsDB = new AccessTeams();
 	
     @Test
-    public void testGoalkeeperList() {
+    public void testSelectInvalidPlayer() {
     	
-    	String result = ""; 
-    	List<String> goalkeeperList = playersDB.getAllGoalkeepers();
-    	for (int i = 0; i < goalkeeperList.size(); i++) {
-    	
-    	}
-    	
+    	List<String> playerList = playersDB.getData();
+    	int randNum = genRandomNumber();
+    	int invalidPlayer = playerList.size() + randNum;
+    	String playerInfo[] = Player.checkPlayer(Integer.toString(invalidPlayer));
+
         try {
-        	assertTrue("Team was Found in the DB!", result.equals("Team Created Successfully!"));
-            System.out.println("Test 1 Pass [UnitTests Suite]!\nCreated Team was successfully stored in database!");
+        	assertTrue("Invalid Player Successfully Rejected!", playerInfo == null);
+            System.out.println("Test 1 Pass [UnitTests Suite]!\nInvalid Player Selection Successfully Rejected!");
+        }
+        catch (AssertionError e) {
+            System.out.println("Test 1 Fail [UnitTests Suite]!\nCreated Team could not be found in database!");
+            fail();
+        }
+    }
+    
+    @Test
+    public void testCreateInvalidTeam() {
+    	
+    	int teamSize = 15;
+    	List<String> playerList = playersDB.getData();
+    	int randNum = genRandomNumber();
+    	for (int i = randNum; i < randNum + teamSize; i++)
+    	String playerInfo[] = Player.checkPlayer(Integer.toString(invalidPlayer));
+
+        try {
+        	assertTrue("Invalid Player Successfully Rejected!", playerInfo == null);
+            System.out.println("Test 1 Pass [UnitTests Suite]!\nInvalid Player Selection Successfully Rejected!");
         }
         catch (AssertionError e) {
             System.out.println("Test 1 Fail [UnitTests Suite]!\nCreated Team could not be found in database!");
@@ -37,14 +56,9 @@ public class UnitTests {
         }	
     }
     
-    //List<String> defenderList = playersDB.getAllDefenders();
-	//List<String> midfielderList = playersDB.getAllMidfielders();
-	//List<String> forwardList = playersDB.getAllForwards();
-    
     private int genRandomNumber() {
     	int maxNum = 5;
     	int newNum = (int) (Math.random() * maxNum);
     	return newNum;
     }
-
 }
