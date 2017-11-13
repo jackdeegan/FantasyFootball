@@ -3,7 +3,7 @@ package Interceptor;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoggingDispatcher implements Interceptor {
+public class LoggingDispatcher {
 	
 	List<Interceptor> listOfInterceptors = new ArrayList<Interceptor>();
 	

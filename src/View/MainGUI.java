@@ -11,11 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-
-import Interceptor.LoggingInterceptor;
-import Interceptor.ServerReplyDispatcher;
-import Interceptor.ServerReplyInterceptor;
-
 public class MainGUI {
 	JFrame frame;
 
@@ -35,14 +30,7 @@ public class MainGUI {
 			}
 		});
 		
-		// here shane
-		ServerReplyInterceptor inter = new LoggingInterceptor();
-		ServerReplyDispatcher dis = new ServerReplyDispatcher();
-		dis.register(inter);
-		//registerServerReplyDispatcher(dis);
-		
 	}
-	
 
 	/**
 	 * Create the application.

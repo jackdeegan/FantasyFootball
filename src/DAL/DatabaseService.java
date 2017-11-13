@@ -71,11 +71,11 @@ public class DatabaseService implements I_DatabaseService {
 		changeFileRow(changedRow);    
     }  
 	
-	public void deleteData(int id) {				//Deletes row beginning with ID passed
+	public void deleteData(String id) {				//Deletes row beginning with ID passed
         deleteFileRow(id);
     }
 	
-	public String verifyData(int id) {				//Verifies an aspect of data relating to the id passed
+	public String verifyData(String id) {			//Verifies an aspect of data relating to the id passed
 		String element = "";
 		element = checkData(id);
 		return element;
@@ -114,13 +114,13 @@ public class DatabaseService implements I_DatabaseService {
 		}
 	}
 
-	private void deleteFileRow(int id) {
+	private void deleteFileRow(String id) {
 
 		String[] rowElements;
 		boolean complete = false;
 		for(int i = 0; i < data.size() && complete == false; i++) {
 			rowElements = data.get(i).split(",");
-			if(Integer.parseInt(rowElements[0]) == id) 
+			if(rowElements[0].equals(id)) 
 			{
 				data.remove(i);
 				writeData(data);
@@ -158,19 +158,19 @@ public class DatabaseService implements I_DatabaseService {
         return null;
 	}
 	
-	private String checkData(int id) {
+	private String checkData(String id) {
 		
 		String element;
 		String rowElements[];
         boolean complete = false;
         for(int i = 0; i < data.size() && complete == false; i++) {
             rowElements = data.get(i).split(",");
-			if (Integer.parseInt(rowElements[0]) == id) {
+			if (rowElements[0].equals(id)) {
 				complete = true;
 				element = rowElements[3];
 				return element;
 			}
 		}
-        return null;
+        return "";
 	}
 }

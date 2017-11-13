@@ -7,5 +7,6 @@ public interface I_DatabaseService {
     public String[] getRowData(int id);
     public void addData(String info);
     public void changeData(String changedRow);
-    public void deleteData(int id);
+    public void deleteData(String id);
+    public String verifyData(String id);
 }

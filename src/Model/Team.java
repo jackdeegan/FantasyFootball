@@ -29,7 +29,7 @@ public class Team extends PlayerComponent {
         int f = 0;
         String[] team = createdTeam.split(",");
         for (int i = 0; i < team.length; i++) {
-        	pos = playersDB.verifyData(Integer.parseInt(team[i]));
+        	pos = playersDB.verifyData(team[i]);
         	if ((i == 0 || i == 11) && pos.equals("G"))
         		g++;
         	else if ((i >= 0 && i < 5 || i == 12)  && pos.equals("D"))

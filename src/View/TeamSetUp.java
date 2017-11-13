@@ -7,19 +7,21 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 
-import Model.User;
 import Model.Player;
 import Model.Team;
 import DAL.AccessPlayers;
-import DAL.AccessTeams;
 import DAL.DatabaseService;
+import Interceptor.InfoLogContext;
+import Interceptor.Interceptor;
+import Interceptor.LoggingDispatcher;
+import Interceptor.LoggingInterceptor;
 
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -28,7 +30,6 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextPane;
 
 public class TeamSetUp extends CreateAccount{
 
@@ -42,7 +43,6 @@ public class TeamSetUp extends CreateAccount{
 	private Scanner in;
 	private JTextField playerEntryField;
 	private String teamSelection = username;
-	private String regex = "[0-9]+";
 
 /*	public void GenerateTeam(){//place in team setup
 		ArrayList <Player> players = new ArrayList<Player>();
@@ -141,15 +141,27 @@ public class TeamSetUp extends CreateAccount{
 		btnConfirmTeam.setBounds(10, 339, 101, 23);
 		frmTeamSetUp.getContentPane().add(btnConfirmTeam);
 		
+		Interceptor newLoggingInterceptor = new LoggingInterceptor();							//Creates new Logging Interceptor
+		LoggingDispatcher newLoggingDispatcher = new LoggingDispatcher();						//Creates new Logging Dispatcher
+		newLoggingDispatcher.register(newLoggingInterceptor);									//Registers Interceptor with Dispatcher
+		
 		JButton btnViewGoalkeepers = new JButton("View Goalkeepers");
 		btnViewGoalkeepers.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				List<String> goalkeeperList = new ArrayList<String>();
-				goalkeeperList = playersDB.getAllGoalkeepers();
+				
+				Date databaseRequestTime = new Date();											//Creates new Date Object	
+				InfoLogContext requestTimeContext = new InfoLogContext(databaseRequestTime);	//Creates new InfoLogContext using Date Object
+				newLoggingDispatcher.onDatabaseRequest(requestTimeContext);						//Execute onDatabaseRequest Method
+				
+				goalkeeperList = playersDB.getAllGoalkeepers();									//Retrieve Info from Database
+				
+				newLoggingDispatcher.onDatabaseReply(requestTimeContext);						//Execute onDatabaseReply Method
+
 				textArea_1.setText("Goalkeepers: \n");
 				for (int i = 0; i < goalkeeperList.size(); i++) {
 					
-					textArea_1.append(goalkeeperList.get(i) + "\n");				//FOR KIERAN TO FIX
+					textArea_1.append(goalkeeperList.get(i) + "\n");
 				}
 			}
 		});
@@ -163,7 +175,7 @@ public class TeamSetUp extends CreateAccount{
 				List<String> defenderList = new ArrayList<String>();
 				defenderList = playersDB.getAllDefenders();
 				for (int i = 0; i < defenderList.size(); i++) {
-					textArea_1.append(defenderList.get(i) + "\n");				//FOR KIERAN TO FIX
+					textArea_1.append(defenderList.get(i) + "\n");
 				}
 			}
 		});
@@ -177,7 +189,7 @@ public class TeamSetUp extends CreateAccount{
 				List<String> midfielderList = new ArrayList<String>();
 				midfielderList = playersDB.getAllMidfielders();
 				for (int i = 0; i < midfielderList.size(); i++) {
-					textArea_1.append(midfielderList.get(i) + "\n");				//FOR KIERAN TO FIX
+					textArea_1.append(midfielderList.get(i) + "\n");
 				}
 			}
 		});
@@ -191,7 +203,7 @@ public class TeamSetUp extends CreateAccount{
 				List<String> forwardList = new ArrayList<String>();
 				forwardList = playersDB.getAllForwards();
 				for (int i = 0; i < forwardList.size(); i++) {
-					textArea_1.append(forwardList.get(i) + "\n");					//FOR KIERAN TO FIX
+					textArea_1.append(forwardList.get(i) + "\n");
 				}
 			}
 		});
@@ -225,22 +237,19 @@ public class TeamSetUp extends CreateAccount{
 		btnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String input = playerEntryField.getText();
-				String playerRow[];
-				if (!(input.matches(regex)))
+				String playerRow[] = Player.checkPlayer(input);
+				if (playerRow == null) {
 					JOptionPane.showMessageDialog(null, "Invalid Selection!");
+				}
+				else if (teamSelection.contains("," + input + ","))
+					JOptionPane.showMessageDialog(null, "Player Already Selected!");
 				else {
 					teamSelection = teamSelection + "," + input;
-					try {
-						playerRow = playersDB.getRowData(Integer.parseInt(input));
-						for (int i = 0; i < playerRow.length; i++) {
-							if (i == (playerRow.length - 1))
-								textArea.append(playerRow[i] + "\n");
-							else
-								textArea.append(playerRow[i] + ",");
-						}
-					}
-					catch(InputMismatchException e1) {
-						JOptionPane.showMessageDialog(null, "Invalid Selection!");
+					for (int i = 0; i < playerRow.length; i++) {
+						if (i == (playerRow.length - 1))
+							textArea.append(playerRow[i] + "\n");
+						else
+							textArea.append(playerRow[i] + ",");
 					}
 				}
 			}
@@ -258,7 +267,7 @@ public class TeamSetUp extends CreateAccount{
 		});
 		btnClearSelection.setBounds(326, 338, 117, 23);
 		frmTeamSetUp.getContentPane().add(btnClearSelection);
-		
-		
+	
 	}
+
 }

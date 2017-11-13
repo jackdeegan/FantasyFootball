@@ -1,7 +1,12 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
+
+import javax.swing.JOptionPane;
+
+
 import DAL.AccessPlayers;
 import DAL.DatabaseService;
 
@@ -159,4 +164,18 @@ public class Player extends PlayerComponent {
 	public void setPlayer_points(int player_points) {
 		this.player_points = player_points;
 	}
+	
+	public static String[] checkPlayer(String selectedPlayer) {
+		
+		DatabaseService playersDB = new AccessPlayers();
+		String regex = "[0-9]+";
+		String playerInfo[] = null;
+		if (!(selectedPlayer.matches(regex)))
+			return playerInfo;
+		else {
+			playerInfo = playersDB.getRowData(Integer.parseInt(selectedPlayer));
+		}
+		
+		return playerInfo;
+    }
 }

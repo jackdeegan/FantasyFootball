@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class InfoLogContext {
 	
-	private Date startTime;
+	private Date databaseRequestTime;
 	
-	public InfoLogContext(Date startTime) {
+	public InfoLogContext(Date databaseRequestTime) {
 	
-		this.startTime = startTime;
+		this.databaseRequestTime = databaseRequestTime;
 		
 	}
 	
-	public Date getStartTime() {
-		return startTime;
+	public Date getDatabaseRequestTime() {
+		return databaseRequestTime;
 	}
 }
