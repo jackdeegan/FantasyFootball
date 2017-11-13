@@ -134,7 +134,7 @@ public class ResultsPage extends LoggedInAdmin{
 						e1.printStackTrace();
 					}
 					StrategyPattern updatePoints = new StrategyPattern();
-					updatePoints.updatePlayerPoints();
+					updatePoints.gameWeek();	
 				}
 			});
 			btnSaveResults.setBounds(10, 273, 105, 23);
