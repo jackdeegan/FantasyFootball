@@ -11,17 +11,27 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import Interceptor.Interceptor;
+import Interceptor.LoggingDispatcher;
+import Interceptor.LoggingInterceptor;
+
 public class MainGUI {
 	JFrame frame;
 
 	/**
 	 * Launch the application.
 	 */
+	public static LoggingDispatcher aLoggingDispatcher = null;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
+					Interceptor newLoggingInterceptor = new LoggingInterceptor();		//Creates new Logging Interceptor
+					aLoggingDispatcher = new LoggingDispatcher();						//Creates new Logging Dispatcher
+					aLoggingDispatcher.register(newLoggingInterceptor);					//Registers Interceptor with Dispatcher
+					
 					MainGUI window = new MainGUI();
 					window.frame.setVisible(true);
 				} catch (Exception e) {

@@ -141,10 +141,6 @@ public class TeamSetUp extends CreateAccount{
 		btnConfirmTeam.setBounds(10, 339, 101, 23);
 		frmTeamSetUp.getContentPane().add(btnConfirmTeam);
 		
-		Interceptor newLoggingInterceptor = new LoggingInterceptor();							//Creates new Logging Interceptor
-		LoggingDispatcher newLoggingDispatcher = new LoggingDispatcher();						//Creates new Logging Dispatcher
-		newLoggingDispatcher.register(newLoggingInterceptor);									//Registers Interceptor with Dispatcher
-		
 		JButton btnViewGoalkeepers = new JButton("View Goalkeepers");
 		btnViewGoalkeepers.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -152,11 +148,11 @@ public class TeamSetUp extends CreateAccount{
 				
 				Date databaseRequestTime = new Date();											//Creates new Date Object	
 				InfoLogContext requestTimeContext = new InfoLogContext(databaseRequestTime);	//Creates new InfoLogContext using Date Object
-				newLoggingDispatcher.onDatabaseRequest(requestTimeContext);						//Execute onDatabaseRequest Method
+				aLoggingDispatcher.onDatabaseRequest(requestTimeContext);						//Execute onDatabaseRequest Method
 				
 				goalkeeperList = playersDB.getAllGoalkeepers();									//Retrieve Info from Database
 				
-				newLoggingDispatcher.onDatabaseReply(requestTimeContext);						//Execute onDatabaseReply Method
+				aLoggingDispatcher.onDatabaseReply(requestTimeContext);							//Execute onDatabaseReply Method
 
 				textArea_1.setText("Goalkeepers: \n");
 				for (int i = 0; i < goalkeeperList.size(); i++) {
