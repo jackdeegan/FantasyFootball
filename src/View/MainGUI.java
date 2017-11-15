@@ -29,16 +29,6 @@ public class MainGUI {
 				}
 			}
 		});
-		
-<<<<<<< HEAD
-=======
-		// here shane
-		//ServerReplyInterceptor inter = new LoggingInterceptor();
-		//ServerReplyDispatcher dis = new ServerReplyDispatcher();
-		//dis.register(inter);
-		//registerServerReplyDispatcher(dis);
-		
->>>>>>> branch 'master' of https://github.com/jackdeegan/FantasyFootball.git
 	}
 
 	/**

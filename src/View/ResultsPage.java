@@ -10,11 +10,11 @@ import java.util.Scanner;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.io.FileWriter;
-import java.util.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
@@ -101,9 +101,7 @@ public class ResultsPage extends LoggedInAdmin{
 						aFile = new FileReader("data/Results.txt");
 						String results;
 						in = new Scanner(aFile);
-						//textArea.setText("Week 1 Fixtures:\n");
-					
-					while (in.hasNext()) {
+						while (in.hasNext()) {
 						results = in.nextLine();
 						textArea.append(results +"\n");
 					}
@@ -134,7 +132,10 @@ public class ResultsPage extends LoggedInAdmin{
 						e1.printStackTrace();
 					}
 					StrategyPattern updatePoints = new StrategyPattern();
-					updatePoints.gameWeek();	
+					updatePoints.gameWeek();
+					JOptionPane.showMessageDialog(btnSaveResults, "Results saved for current week.\nPlease log in again to enter in next weeks results.",
+														"SUCCESS",JOptionPane.INFORMATION_MESSAGE);
+					System.exit(0);
 				}
 			});
 			btnSaveResults.setBounds(10, 273, 105, 23);
