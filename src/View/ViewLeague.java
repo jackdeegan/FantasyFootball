@@ -1,9 +1,11 @@
 package View;
 
 import java.awt.EventQueue;
-import League.Fixtures;
+import League.*;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import DAL.AccessTeams;
 import DAL.AccessPlayers;
 import League.LeagueCaretaker;
@@ -20,12 +22,12 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 
 
-public class ViewLeague {
+public class ViewLeague{
 	
-	public static int GameWeek = 0;
-
-	int currentWeek = 0;
-	TeamComponent league = new LeaguePublic("League");
+	public static int GameWeeks = 0;
+	public static TeamComponent league = new LeaguePublic("League");
+	public static int currentWeek = 0;
+	
     LeagueCaretaker caretaker = new LeagueCaretaker();//allows adding and retrieval of league states
 	LeagueOriginator originator = new LeagueOriginator();//sets values for league, create new mementos, stores league in current memento	
 	private JFrame frame;
@@ -33,50 +35,51 @@ public class ViewLeague {
 	public void StartLeagueTable () {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
+				try {					
 					ViewLeague window = new ViewLeague();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
+					GenerateTeams();//generate current leaderboard into team objects
+				 }catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
 
-	public ViewLeague()
-	{
-		
+	public ViewLeague(){		
 		initialize();
-		
-	}
-
+		}
+	
 	private void GenerateTeams() {
-		
-
-			ArrayList <Player> players = new ArrayList<Player>();
-			int teamCount;
-			String [] team;
-			AccessTeams accessTeam = new AccessTeams();
+		int teamCount;
+		String [] team;
+		Team newTeam;
+		ArrayList <Player> players = new ArrayList<Player>();	
+	    
+		AccessTeams accessTeam = new AccessTeams();
+			
 			teamCount = accessTeam.getData().size();
-			for(int i = 0; i < teamCount; i++)
+			for(int i = 1; i <= teamCount; i++)
 			{
-				team = accessTeam.getRowData(teamCount);
+				team = accessTeam.getRowData(i);//shanekenny123,1,12,13,2,4,15,14,16,17,18,5,6,20,10,11
 			    players = GeneratePlayersForTeams(team);
-			    Team newTeam = new Team(team[0],players);	 //name,points,players	    
+			    newTeam = new Team(team[1],players);	 //TeamName,points	    
 				league.add(newTeam);
 			}
 			//display
+			originator.set(league);
+			
 		    				
 	}
-	public ArrayList <Player> GeneratePlayersForTeams(String [] line) 
+	public ArrayList <Player> GeneratePlayersForTeams(String [] team) 
 	{
 		ArrayList <Player> players = new ArrayList<Player>();
 		Player selectedPlayer;
 		String [] player;
 		AccessPlayers accessPlayer = new AccessPlayers();
-		for(int i = 1; i<line.length - 1; i++) 
-		{
-			player = accessPlayer.getRowData(i);
+		for(int i = 2; i<team.length; i++) 
+		{		
+			player = accessPlayer.getRowData(Integer.parseInt(team[i]));//access specific player from team line
 			selectedPlayer = new Player(Integer.parseInt(player[0]),player[1],player[2],player[3],Integer.parseInt(player[4]),player[5],Integer.parseInt(player[6]));
 			players.add(selectedPlayer);
 		}		
@@ -84,9 +87,7 @@ public class ViewLeague {
 	}
 
 	private void initialize()
-	{
-		
-		GenerateTeams();//generate current leaderboard into team objects
+	{		
 		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 650, 650);
@@ -106,8 +107,7 @@ public class ViewLeague {
 					currentWeek--;
 
                     league = originator.restoreFromMemento(caretaker.getLeagueMemento(currentWeek));
-
-                    //display 
+                    league.displayTeamInfo();
 				}
 					
 			}
@@ -119,29 +119,32 @@ public class ViewLeague {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				if((GameWeek - 1) > currentWeek)
+				if((GameWeeks - 1) > currentWeek)
 				   {
 					   currentWeek++;
 
-					   league = originator.restoreFromMemento(caretaker.getLeagueMemento(currentWeek) );
-					   //display
+					   league = originator.restoreFromMemento(caretaker.getLeagueMemento(currentWeek));
+					   league.displayTeamInfo();
+					   
 			       }
+				
 			}
 		});
-			
-		
+					
 		btnNewButton_1.setBounds(433, 16, 116, 25);
 		frame.getContentPane().add(btnNewButton_1);
 		
-		JButton btnGenerateFixtureResults = new JButton("Generate fixture results");
+		JButton btnGenerateFixtureResults = new JButton("Play Game Week");
 		btnGenerateFixtureResults.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Fixtures newStandings = new Fixtures(league);
 				originator.set(league);
 				caretaker.addMemento(originator.storeInMemento());
 				
-				GameWeek++;
+				GameWeeks++;
 				currentWeek++;
+				
+				JOptionPane.showMessageDialog(null, "Fixture results Procesed, Game Week Saved");
 			}
 		});
 		btnGenerateFixtureResults.setBounds(382, 547, 167, 25);
@@ -166,9 +169,5 @@ public class ViewLeague {
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(38, 118, 558, 388);
 		frame.getContentPane().add(textArea);
-		textArea.append(league.displayLeagueTeams());//iterate through each team and display team and points in order
-				
 	}
-
 }
-	

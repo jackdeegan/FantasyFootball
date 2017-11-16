@@ -23,18 +23,25 @@ public class LeaguePublic extends TeamComponent{//add teams to league and call s
      } 
 
     public TeamComponent getComponent(int componentIndex) { 	
-        return (Team)teamComponents.get(componentIndex);
+        return (TeamComponent)teamComponents.get(componentIndex);
         }
+    
+    public void updatePoints(int points) {
+    	 Iterator teamIterator = teamComponents.iterator();
 
-    public String displayLeagueTeams(){
-        String info = "";
+         while(teamIterator.hasNext()) {
+             TeamComponent teamInfo = (TeamComponent) teamIterator.next();
+             teamInfo.updatePoints(points);}
+    }
+
+    public void displayTeamInfo(){
         Iterator teamIterator = teamComponents.iterator();
 
         while(teamIterator.hasNext()) {
             TeamComponent teamInfo = (TeamComponent) teamIterator.next();
-            info = teamInfo.displayTeamInfo();
+            teamInfo.displayTeamInfo();
         }
-		return info;
+        		
     }
 }
 

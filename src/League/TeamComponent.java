@@ -1,6 +1,6 @@
 package League;
-//acts as interface for every Team
-public abstract class TeamComponent{//safety vs transparency in composite which did you go for?
+
+public abstract class TeamComponent{
 
    /*Throw UnsupportedOperationException so that if
      it doesn't make sense for a team, or the league
@@ -35,7 +35,7 @@ public abstract class TeamComponent{//safety vs transparency in composite which 
   		throw new UnsupportedOperationException();
 
     }
-	public void updatePoints() {
+	public void updatePoints(int points) {
   		throw new UnsupportedOperationException();
 	}
     
@@ -53,13 +53,10 @@ public abstract class TeamComponent{//safety vs transparency in composite which 
 		throw new UnsupportedOperationException();
 
     }
-    public String displayLeagueTeams(){
-		throw new UnsupportedOperationException();
 
-    }
     //When called by class object that extends this class 
     //it will print info specific to the team
-    public String displayTeamInfo() {
+    public void displayTeamInfo() {
 		throw new UnsupportedOperationException();
 
     }

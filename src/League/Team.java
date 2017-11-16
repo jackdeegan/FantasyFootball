@@ -22,13 +22,14 @@ public class Team extends TeamComponent{
 	public void updatePoints(int latestPoints) {
 		points += latestPoints;
 	}
+	public int getPoints() {
+		return points;
+	}
 	  
-    public String displayTeamInfo(){
-    	String info = "";
-
-    	        info = getTeamUser() + " " + getPoints() + "\n";
-    	        return info;
+    public void displayTeamInfo(){
+    	
+    	System.out.println(getTeamUser() + " " + getPoints() + "\n");
+    	      
     }
-
 
 }

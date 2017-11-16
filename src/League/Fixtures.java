@@ -9,20 +9,18 @@ import java.util.ArrayList;
  
  public class Fixtures extends TeamComponent{
  	
- 	
-
-	public TeamComponent league = new LeaguePublic("League");
- 	//test
+	public TeamComponent league;
 
 	public Fixtures(TeamComponent newLeagueValues) {
 		league = newLeagueValues;
  		createNewStandings(league);
-		ViewLeague.GameWeek++;
+		ViewLeague.GameWeeks++;
+
 		
  	}
  
- 	public TeamComponent getTeamList(){
- 		return league;
+ 	public void getTeamList(){
+ 		league.displayTeamInfo();
  	}
  	
 
@@ -31,10 +29,13 @@ import java.util.ArrayList;
  		int numberOfTeams;
  		String [] teamLine;
  		AccessTeams accessTeam = new AccessTeams();
- 		numberOfTeams = accessTeam.getData().size();	
- 		for(int i = 0; i<numberOfTeams; i++) {
- 			teamLine = accessTeam.getRowData(i);				
-			for(int j = 1; j<teamLine.length - 1; j++){				
+ 		numberOfTeams = accessTeam.getData().size();
+ 		
+ 		for(int i = 1; i<numberOfTeams; i++) 
+ 		{
+ 			teamLine = accessTeam.getRowData(i);
+			for(int j = 2; j < teamLine.length; j++)
+			{
  				updatePoints(Integer.parseInt(teamLine[j]),numberOfTeams,league);//goes and looks up player in played fixtures
 			}
  		}					
@@ -42,25 +43,30 @@ import java.util.ArrayList;
 
 	public void updatePoints(int playerID,int numTeams,TeamComponent league) {
 		Team team;
-		int Points = 0,Start,Finish;
+		int Points = 0;//Start,Finish;
 		String [] teamName;
 		String [] teamFixtureName;
 		ArrayList<String> FixtureTeams = new ArrayList<String>();
 		AccessPlayers players = new AccessPlayers();
 		AccessFixtures fixtures = new AccessFixtures();
-		for(int j = 0; j < 10; j++) {//gets team name strings who have played eg. MUN and adds to arraylist
+		
+		for(int j = 1; j < 11; j++) //gets team name strings who have played eg. MUN and adds to arraylist
+		{
 			teamFixtureName = fixtures.getRowData(j);
 			FixtureTeams.add(teamFixtureName[1]);
 			FixtureTeams.add(teamFixtureName[2]);
-		}		
-         for(int i = 0; i<numTeams; i++) { //runs through current leaderboard and updates teams points based on individual players
-        	team = (Team) league.getComponent(i);
+		}
+		
+         for(int i = 0; i<numTeams; i++) //runs through current leaderboard and updates teams points based on individual players
+         {        	
         	teamName = players.getRowData(playerID);
         	if(FixtureTeams.contains(teamName[5]))
         	{
+        	team = (Team) league.getComponent(i);
         	Points += Integer.parseInt(teamName[6]);
         	team.updatePoints(Points);
-       	}
+        	Points = 0;
+         	}
         	
          }
  	}

@@ -1,0 +1,12 @@
+Database Request Time: 20:12:20:265
+Database Reply Time = 20:12:20:297
+----------------------------------------------
+Time between Database Request and Reply = 32 milliseconds
+
+
+Database Request Time: 20:15:11:186
+Database Reply Time = 20:15:11:194
+----------------------------------------------
+Time between Database Request and Reply = 8 milliseconds
+
+
